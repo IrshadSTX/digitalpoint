@@ -1,6 +1,268 @@
 /* ============================================================
-   COMPONENTS — Buttons, Badges, Cards, Chips, Forms, Testimonials
+   COMPONENTS — Buttons, Badges, Cards, Chips, Forms, Testimonials,
+                Logo, University badges, Gallery, App links, Contact chips
    ============================================================ */
+
+/* ── Logo image ────────────────────────────────────────────── */
+.logo-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* ── University row ────────────────────────────────────────── */
+.university-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 28px 0 40px;
+}
+.uni-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  border-radius: var(--radius-md);
+  background: rgba(0,229,255,0.06);
+  border: 1px solid rgba(0,229,255,0.22);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  flex: 1;
+  min-width: 240px;
+}
+.uni-badge:hover { background: rgba(0,229,255,0.12); border-color: rgba(0,229,255,0.4); }
+.uni-badge > span { font-size: 1.8rem; flex-shrink: 0; }
+.uni-badge strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--white); }
+.uni-badge span:not(:first-child) { font-size: 0.8rem; color: var(--white-60); margin-top: 2px; display: block; }
+
+/* ── Why card icon variant ─────────────────────────────────── */
+.why-icon { font-size: 2rem; margin-bottom: 10px; }
+
+/* ── App download buttons ──────────────────────────────────── */
+.app-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.app-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(0,229,255,0.10);
+  border: 1px solid rgba(0,229,255,0.28);
+  color: var(--cyan);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.app-btn:hover { background: rgba(0,229,255,0.20); border-color: var(--cyan); }
+
+/* ── Contact chips (CTA band) ──────────────────────────────── */
+.contact-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: var(--white-80);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background var(--transition-fast);
+}
+.contact-chip:hover { background: rgba(0,229,255,0.12); color: var(--cyan); }
+
+/* ── Gallery tabs ──────────────────────────────────────────── */
+.gallery-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 36px 0 32px;
+}
+.gallery-tab {
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--white-60);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+.gallery-tab.active {
+  background: rgba(0,229,255,0.14);
+  border-color: rgba(0,229,255,0.45);
+  color: var(--cyan);
+}
+.gallery-tab:hover:not(.active) { background: rgba(255,255,255,0.10); color: var(--white); }
+
+/* ── Photo grid ────────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+.gallery-grid.hidden { display: none; }
+
+.media-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+.media-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+.media-item:hover { transform: translateY(-4px); border-color: rgba(0,229,255,0.35); }
+.media-item:hover img { transform: scale(1.05); }
+
+/* Overlay on hover */
+.media-item::after {
+  content: '🔍';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,229,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.media-item:hover::after { opacity: 1; }
+
+/* Placeholder slot (before client adds real images) */
+.media-placeholder {
+  cursor: default;
+  border: 1px dashed rgba(0,229,255,0.25);
+}
+.media-placeholder::after { display: none; }
+.placeholder-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--white-60);
+}
+.placeholder-inner span { font-size: 2rem; opacity: 0.4; }
+.placeholder-inner p { font-size: 0.8rem; opacity: 0.5; }
+
+/* ── Video cards ───────────────────────────────────────────── */
+.video-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+.video-card:hover { transform: translateY(-4px); border-color: rgba(0,229,255,0.35); }
+
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #0a1628, #0d2a50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+.play-btn {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(0,229,255,0.2);
+  border: 2px solid rgba(0,229,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--cyan);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  z-index: 1;
+}
+.video-thumb:hover .play-btn { background: rgba(0,229,255,0.35); transform: scale(1.1); }
+.video-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 10px 14px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7), transparent);
+  font-size: 0.8rem;
+  color: var(--white-80);
+  z-index: 1;
+}
+
+/* ── Lightbox ──────────────────────────────────────────────── */
+.lightbox,
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+.lightbox.open,
+.video-modal.open { opacity: 1; pointer-events: all; }
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+  object-fit: contain;
+}
+.video-modal-inner {
+  width: min(900px, 95vw);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+}
+.video-modal-inner iframe { width: 100%; height: 100%; border: none; }
+
+.lightbox-close {
+  position: fixed;
+  top: 20px; right: 24px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast);
+  z-index: 201;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+/* ── Gallery responsive ────────────────────────────────────── */
+@media (max-width: 900px)  { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .gallery-grid { grid-template-columns: 1fr; } }
 
 /* ── Buttons ───────────────────────────────────────────────── */
 .btn-primary {
