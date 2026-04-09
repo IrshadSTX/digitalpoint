@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Point — B.Ed &amp; M.Ed Admissions 2026</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets (load order matters) -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+
+  <!-- ── Fixed background layers ─────────────────────────── -->
+  <div class="bg-mesh" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       NAVBAR
+  ═════════════════════════════════════════════════════════ -->
+  <nav aria-label="Main navigation">
+    <a href="#home" class="nav-logo">
+      <div class="logo-icon" aria-hidden="true">🎓</div>
+      Digital <span class="accent">Point</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#process">Admission</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#apply" class="nav-cta">Apply Now →</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════
+       HERO
+  ═════════════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <!-- Ambient orbs -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+
+      <!-- Left: copy block -->
+      <div class="hero-copy reveal">
+        <div class="hero-badge">
+          <span class="dot" aria-hidden="true"></span>
+          Admissions Open 2026
+        </div>
+
+        <h1 class="hero-title">
+          <span>Shape the</span>
+          <span class="line-cyan">Future of</span>
+          <span class="line-glow">Education</span>
+        </h1>
+
+        <p class="hero-sub">
+          Join Kashmir's most trusted B.Ed &amp; M.Ed consultancy. We bridge your
+          academic ambition with India's top teacher training institutions —
+          seamlessly, transparently, and with guaranteed guidance.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#apply" class="btn-primary">
+            Start Your Application <span aria-hidden="true">→</span>
+          </a>
+          <a href="#programs" class="btn-outline">
+            Explore Programs <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">2,400+</span>
+            <span class="stat-label">Students Placed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Success Rate</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">150+</span>
+            <span class="stat-label">Partner Colleges</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">12 Yrs</span>
+            <span class="stat-label">Experience</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: glass enquiry card -->
+      <div class="hero-card-wrap" id="apply">
+        <div class="hero-card reveal" style="transition-delay: 0.15s">
+
+          <!-- Floating decorative icons -->
+          <div class="float-icons" aria-hidden="true">
+            <span class="ficon ficon-1">🎓</span>
+            <span class="ficon ficon-2">📚</span>
+            <span class="ficon ficon-3">🌐</span>
+            <span class="ficon ficon-4">✏️</span>
+          </div>
+
+          <div class="card-tag">✦ Quick Enquiry</div>
+          <h2 class="card-title">Get Admission<br />Counselling Free</h2>
+          <p class="card-sub">Fill in your details and our expert counsellors will contact you within 24 hours.</p>
+
+          <div class="course-chips" role="list" aria-label="Available programmes">
+            <div class="chip" role="listitem"><span class="chip-icon">🎓</span> B.Ed 2026</div>
+            <div class="chip" role="listitem"><span class="chip-icon">📖</span> M.Ed 2026</div>
+            <div class="chip" role="listitem"><span class="chip-icon">🌐</span> Distance Mode</div>
+            <div class="chip" role="listitem"><span class="chip-icon">🏫</span> Regular Mode</div>
+          </div>
+
+          <form class="card-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Full Name</label>
+                <input id="name" type="text" placeholder="Your full name" required />
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input id="phone" type="tel" placeholder="+91 XXXXX XXXXX" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@email.com" />
+              </div>
+              <div class="form-field">
+                <label for="program">Program</label>
+                <select id="program">
+                  <option>B.Ed (Regular)</option>
+                  <option>B.Ed (Distance)</option>
+                  <option>M.Ed (Regular)</option>
+                  <option>M.Ed (Distance)</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary">
+              Get Free Counselling <span aria-hidden="true">✦</span>
+            </button>
+          </form>
+
+        </div>
+      </div><!-- .hero-card-wrap -->
+
+    </div><!-- .hero-inner -->
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       FEATURES STRIP
+  ═════════════════════════════════════════════════════════ -->
+  <div class="features-strip reveal" role="list" aria-label="Key benefits">
+    <div class="feature-item" role="listitem">
+      <div class="feature-icon-wrap" aria-hidden="true">🏆</div>
+      <div class="feature-text">
+        <strong>NAAC Accredited</strong>
+        <span>All partner colleges are UGC approved</span>
+      </div>
+    </div>
+    <div class="feature-item" role="listitem">
+      <div class="feature-icon-wrap" aria-hidden="true">⚡</div>
+      <div class="feature-text">
+        <strong>Fast Processing</strong>
+        <span>Admission completed in 7–10 working days</span>
+      </div>
+    </div>
+    <div class="feature-item" role="listitem">
+      <div class="feature-icon-wrap" aria-hidden="true">🔒</div>
+      <div class="feature-text">
+        <strong>100% Transparent</strong>
+        <span>No hidden fees — full fee breakdown upfront</span>
+      </div>
+    </div>
+    <div class="feature-item" role="listitem">
+      <div class="feature-icon-wrap" aria-hidden="true">📞</div>
+      <div class="feature-text">
+        <strong>Dedicated Support</strong>
+        <span>Personal counsellor assigned to every student</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       PROGRAMS
+  ═════════════════════════════════════════════════════════ -->
+  <section class="section-tinted" id="programs">
+    <div class="container">
+      <div class="section-label">Our Programs</div>
+      <h2 class="section-title reveal">Choose Your <span>Path to Teaching</span></h2>
+      <p class="section-sub reveal">
+        Comprehensive guidance for B.Ed and M.Ed admissions across Regular and
+        Distance modes with top universities.
+      </p>
+
+      <div class="programs-grid">
+
+        <!-- B.Ed Regular -->
+        <article class="program-card reveal">
+          <span class="program-icon" aria-hidden="true">🎓</span>
+          <h3 class="program-name">B.Ed — Regular Mode</h3>
+          <p class="program-desc">
+            Two-year full-time Bachelor of Education programme from
+            UGC-recognised universities. Ideal for dedicated teaching careers.
+          </p>
+          <ul class="program-details">
+            <li>Duration: 2 Years Full-Time</li>
+            <li>Eligibility: Graduation with 50%+</li>
+            <li>Intake: July 2026 Session</li>
+            <li>NCTE Approved Curriculum</li>
+          </ul>
+          <a href="#apply" class="program-cta">Apply Now →</a>
+        </article>
+
+        <!-- B.Ed Distance (featured) -->
+        <article class="program-card featured reveal" style="transition-delay: 0.1s">
+          <div class="program-badge">Most Popular</div>
+          <span class="program-icon" aria-hidden="true">📡</span>
+          <h3 class="program-name">B.Ed — Distance Mode</h3>
+          <p class="program-desc">
+            Flexible distance learning B.Ed for working professionals. Study from
+            home with full DEB-approved credentials.
+          </p>
+          <ul class="program-details">
+            <li>Duration: 2 Years Distance</li>
+            <li>Eligibility: Graduation with 50%+</li>
+            <li>DEB / UGC Approved</li>
+            <li>Suitable for Working Teachers</li>
+          </ul>
+          <a href="#apply" class="program-cta">Apply Now →</a>
+        </article>
+
+        <!-- M.Ed -->
+        <article class="program-card reveal" style="transition-delay: 0.2s">
+          <span class="program-icon" aria-hidden="true">📖</span>
+          <h3 class="program-name">M.Ed — Regular &amp; Distance</h3>
+          <p class="program-desc">
+            Advance your teaching career with a Master of Education.
+            Specialisations in Curriculum, Psychology, and Administration.
+          </p>
+          <ul class="program-details">
+            <li>Duration: 2 Years (Regular / Distance)</li>
+            <li>Eligibility: B.Ed with 55%+</li>
+            <li>Specialisation Options Available</li>
+            <li>Research &amp; Thesis Guidance</li>
+          </ul>
+          <a href="#apply" class="program-cta">Apply Now →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       WHY CHOOSE US
+  ═════════════════════════════════════════════════════════ -->
+  <section id="why">
+    <div class="container">
+      <div class="center-text">
+        <div class="section-label reveal">Why Digital Point</div>
+        <h2 class="section-title reveal">Numbers That <span>Speak for Themselves</span></h2>
+        <p class="section-sub reveal">
+          Over a decade of excellence in educational consultancy — trusted by
+          thousands of teachers across J&amp;K.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-num">2,400+</div>
+          <div class="why-label">Successful Admissions</div>
+          <p class="why-desc">Students placed in reputed B.Ed &amp; M.Ed programmes since 2012.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay: 0.1s">
+          <div class="why-num">150+</div>
+          <div class="why-label">Partner Institutions</div>
+          <p class="why-desc">Tie-ups with NAAC-accredited colleges across India.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay: 0.2s">
+          <div class="why-num">98%</div>
+          <div class="why-label">Admission Success Rate</div>
+          <p class="why-desc">Highest documented success rate with end-to-end documentation support.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay: 0.3s">
+          <div class="why-num">12 Yrs</div>
+          <div class="why-label">Industry Experience</div>
+          <p class="why-desc">Deep expertise in admission processes, eligibility norms, and compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       ADMISSION PROCESS
+  ═════════════════════════════════════════════════════════ -->
+  <section class="section-tinted" id="process">
+    <div class="container">
+      <div class="center-text">
+        <div class="section-label reveal">Simple Process</div>
+        <h2 class="section-title reveal">Admission in <span>4 Easy Steps</span></h2>
+        <p class="section-sub reveal">
+          We handle the complexity so you can focus on your future in teaching.
+        </p>
+      </div>
+
+      <div class="process-steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h4 class="step-title">Free Counselling</h4>
+          <p class="step-desc">Speak with a dedicated advisor who maps the right programme to your profile and goals.</p>
+        </div>
+        <div class="step reveal" style="transition-delay: 0.12s">
+          <div class="step-num">02</div>
+          <h4 class="step-title">Document Review</h4>
+          <p class="step-desc">We verify your eligibility documents and guide you on any gaps that need resolution.</p>
+        </div>
+        <div class="step reveal" style="transition-delay: 0.24s">
+          <div class="step-num">03</div>
+          <h4 class="step-title">College Selection</h4>
+          <p class="step-desc">Choose from our curated list of NAAC-accredited, UGC-approved colleges by budget and location.</p>
+        </div>
+        <div class="step reveal" style="transition-delay: 0.36s">
+          <div class="step-num">04</div>
+          <h4 class="step-title">Enrolment Confirmed</h4>
+          <p class="step-desc">Complete payment, submit final documents, and receive your official admission letter within days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       TESTIMONIALS
+  ═════════════════════════════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="center-text">
+        <div class="section-label reveal">Student Stories</div>
+        <h2 class="section-title reveal">Trusted by <span>Teachers Across J&amp;K</span></h2>
+        <p class="section-sub reveal">Real experiences from students who built their teaching careers with Digital Point.</p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <article class="testimonial-card reveal">
+          <div class="quote-mark" aria-hidden="true">"</div>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text">
+            Digital Point made my B.Ed admission process completely stress-free.
+            They handled every document, every call to the university — I just showed
+            up to confirm. Genuinely the best consultancy in Kashmir.
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true">RB</div>
+            <div>
+              <div class="author-name">Ruqaiya Bashir</div>
+              <div class="author-meta">B.Ed 2024 · Srinagar</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal" style="transition-delay: 0.12s">
+          <div class="quote-mark" aria-hidden="true">"</div>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text">
+            As a working teacher I needed distance mode M.Ed. The team at Digital
+            Point found me a DEB-approved programme that fit perfectly. My counsellor
+            was reachable on WhatsApp at any hour — that trust means everything.
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true">FA</div>
+            <div>
+              <div class="author-name">Farooq Ahmad</div>
+              <div class="author-meta">M.Ed Distance 2024 · Anantnag</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal" style="transition-delay: 0.24s">
+          <div class="quote-mark" aria-hidden="true">"</div>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text">
+            I was confused between three colleges. Digital Point's counsellor sat
+            with me for an hour, explained fee structures, accreditation, and career
+            prospects — completely free. Got my letter in 8 days flat.
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true">SJ</div>
+            <div>
+              <div class="author-name">Sumira Jan</div>
+              <div class="author-meta">B.Ed Regular 2025 · Baramulla</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       CTA BAND
+  ═════════════════════════════════════════════════════════ -->
+  <section style="padding-top: 0; padding-bottom: 100px;" id="contact">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div class="cta-band-copy">
+          <h2>Ready to Begin Your <span>Teaching Career?</span></h2>
+          <p>
+            Seats for B.Ed &amp; M.Ed 2026 are limited. Apply today and secure your
+            place with a free counselling session — no obligation, no hidden fees.
+          </p>
+        </div>
+        <div class="cta-band-actions">
+          <a href="#apply" class="btn-primary">Apply for 2026 Admissions</a>
+          <a href="tel:+919797000000" class="btn-outline">📞 Call Us Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+  ═════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner container">
+
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo">
+          <div class="logo-icon" aria-hidden="true">🎓</div>
+          Digital <span class="accent">Point</span>
+        </a>
+        <p>Kashmir's leading B.Ed &amp; M.Ed educational consultancy, empowering
+           aspiring teachers since 2012 with transparent, professional admissions guidance.</p>
+        <address class="footer-contact" style="font-style:normal;">
+          <span>📍 Srinagar, Jammu &amp; Kashmir</span>
+          <span>📞 <a href="tel:+919797000000">+91 97970 00000</a></span>
+          <span>✉️ <a href="mailto:info@digitalpoint.in">info@digitalpoint.in</a></span>
+        </address>
+      </div>
+
+      <nav class="footer-col" aria-label="Programs">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#programs">B.Ed Regular 2026</a></li>
+          <li><a href="#programs">B.Ed Distance 2026</a></li>
+          <li><a href="#programs">M.Ed Regular 2026</a></li>
+          <li><a href="#programs">M.Ed Distance 2026</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Quick links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#why">Why Digital Point</a></li>
+          <li><a href="#process">Admission Process</a></li>
+          <li><a href="#testimonials">Student Reviews</a></li>
+          <li><a href="#apply">Apply Now</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Resources">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Eligibility Criteria</a></li>
+          <li><a href="#">Document Checklist</a></li>
+          <li><a href="#">Fee Structure</a></li>
+          <li><a href="#">UGC / NCTE Norms</a></li>
+        </ul>
+      </nav>
+
+    </div><!-- .footer-inner -->
+
+    <div class="footer-bottom container">
+      <p>© 2026 <span>Digital Point</span>. All rights reserved. Admissions for B.Ed &amp; M.Ed 2026 are open.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+        <a href="#" class="social-link" aria-label="Instagram">📸</a>
+        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+        <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════
+       SCRIPTS (deferred, non-blocking)
+  ═════════════════════════════════════════════════════════ -->
+  <script src="assets/js/reveal.js"       defer></script>
+  <script src="assets/js/counters.js"     defer></script>
+  <script src="assets/js/interactions.js" defer></script>
+
+</body>
+</html>

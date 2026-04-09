@@ -1,0 +1,56 @@
+/* ============================================================
+   ANIMATIONS — Keyframes, Scroll Reveal, Floating effects
+   ============================================================ */
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes meshShift {
+  0%   { filter: hue-rotate(0deg)  brightness(1.00); }
+  50%  { filter: hue-rotate(8deg)  brightness(1.05); }
+  100% { filter: hue-rotate(-5deg) brightness(0.97); }
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0)     scale(1.00); }
+  33%       { transform: translate(30px, -40px) scale(1.05); }
+  66%       { transform: translate(-20px, 25px) scale(0.96); }
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: rotateY(-6deg) rotateX(3deg) translateY(0);    }
+  50%       { transform: rotateY(-4deg) rotateX(2deg) translateY(-12px); }
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0)     rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(6deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   transform: scale(1.0); }
+  50%       { opacity: 0.5; transform: scale(1.5); }
+}
+
+/* ── Scroll reveal ─────────────────────────────────────────── */
+/*
+  Elements marked with .reveal start invisible.
+  JS (reveal.js) adds .visible when they enter the viewport.
+  Use style="transition-delay: Xs" on siblings to stagger them.
+*/
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero card — only animate float when not hovered / not JS-tilted */
+@media (max-width: 1100px) {
+  /* Disable 3-D tilt on small screens; keep float */
+  .hero-card {
+    transform: none;
+    animation: none;
+  }
+}

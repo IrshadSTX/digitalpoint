@@ -1,0 +1,133 @@
+/* ============================================================
+   BASE — Custom Properties, Reset, Typography
+   ============================================================ */
+
+:root {
+  /* Color tokens */
+  --midnight:       #050a1a;
+  --deep-blue:      #0a1628;
+  --navy:           #0d1f3c;
+  --cyan:           #00e5ff;
+  --cyan-soft:      #00b4d8;
+  --cyan-glow:      rgba(0, 229, 255, 0.18);
+  --cyan-dim:       rgba(0, 229, 255, 0.08);
+
+  /* Alpha-white scale */
+  --white:          #ffffff;
+  --white-80:       rgba(255, 255, 255, 0.80);
+  --white-60:       rgba(255, 255, 255, 0.60);
+  --white-20:       rgba(255, 255, 255, 0.20);
+  --white-10:       rgba(255, 255, 255, 0.10);
+  --white-06:       rgba(255, 255, 255, 0.06);
+
+  /* Glass system */
+  --glass-bg:       rgba(255, 255, 255, 0.04);
+  --glass-border:   rgba(0, 229, 255, 0.25);
+
+  /* Typography */
+  --font-display:   'Montserrat', sans-serif;
+  --font-body:      'Inter', sans-serif;
+
+  /* Spacing scale */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  24px;
+  --space-lg:  40px;
+  --space-xl:  60px;
+  --space-2xl: 100px;
+
+  /* Border radius scale */
+  --radius-sm:  10px;
+  --radius-md:  18px;
+  --radius-lg:  22px;
+  --radius-xl:  28px;
+  --radius-pill: 50px;
+
+  /* Transitions */
+  --transition-fast:   0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow:   0.5s ease;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--midnight);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+
+/* ── Utility: Section wrapper ──────────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* ── Section generic ───────────────────────────────────────── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 14px;
+}
+.section-label::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: var(--cyan);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.section-title span { color: var(--cyan); }
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--white-60);
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+/* Center-text modifier */
+.center-text { text-align: center; }
+.center-text .section-label  { margin-left: auto; margin-right: auto; justify-content: center; }
+.center-text .section-sub    { margin-left: auto; margin-right: auto; }
