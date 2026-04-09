@@ -32,17 +32,27 @@
             Digital <span class="accent">Point</span>
         </a>
 
-        <ul class="nav-links" role="list">
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#process">Admission</a></li>
-            <li><a href="#why">Why Us</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links" id="nav-links" role="list">
+            <li><a href="#programs" class="nav-link-item">Programs</a></li>
+            <li><a href="#process" class="nav-link-item">Admission</a></li>
+            <li><a href="#why" class="nav-link-item">Why Us</a></li>
+            <li><a href="#gallery" class="nav-link-item">Gallery</a></li>
+            <li><a href="#testimonials" class="nav-link-item">Reviews</a></li>
+            <li><a href="#contact" class="nav-link-item">Contact</a></li>
+            <!-- Mobile-only CTA inside menu -->
+            <li class="mobile-nav-cta"><a href="#apply" class="btn-primary">Apply Now →</a></li>
         </ul>
 
-        <a href="#apply" class="nav-cta">Apply Now →</a>
+        <a href="#apply" class="nav-cta desktop-cta">Apply Now →</a>
+
+        <!-- Hamburger (mobile only) -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- Mobile nav backdrop -->
+    <div class="nav-backdrop" id="nav-backdrop"></div>
 
     <!-- ════════════════════════════════════════════════════════
        HERO
