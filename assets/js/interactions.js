@@ -53,7 +53,7 @@
 
   /* ── 2. Navbar shrink on scroll ────────────────────────────── */
   function initNavShrink() {
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('nav.main-nav');
     if (!nav) return;
 
     window.addEventListener('scroll', () => {

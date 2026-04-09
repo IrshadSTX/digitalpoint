@@ -29,7 +29,7 @@
 }
 
 /* ── Navbar ────────────────────────────────────────────────── */
-nav {
+nav.main-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -45,7 +45,7 @@ nav {
   border-bottom: 1px solid rgba(0, 229, 255, 0.12);
   transition: padding var(--transition-normal);
 }
-nav.scrolled { padding: 12px var(--space-xl); }
+nav.main-nav.scrolled { padding: 12px var(--space-xl); }
 
 .nav-logo {
   display: flex;
@@ -453,9 +453,8 @@ footer {
 /* ── Mobile ─────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   /* Nav */
-  nav {
+  nav.main-nav {
     padding: 14px 20px;
-    position: fixed;
   }
   .hamburger   { display: flex; }
   .desktop-cta { display: none; }

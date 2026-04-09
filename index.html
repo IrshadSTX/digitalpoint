@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/animations.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/popup-carousel.css" />
 </head>
 
 <body>
@@ -24,9 +25,47 @@
     <div class="bg-grid" aria-hidden="true"></div>
 
     <!-- ════════════════════════════════════════════════════════
+       ENTRY POPUP MODAL
+  ═════════════════════════════════════════════════════════ -->
+    <div class="entry-popup" id="entry-popup" role="dialog" aria-modal="true" aria-label="Admissions announcement">
+        <div class="popup-overlay" id="popup-overlay"></div>
+        <div class="popup-card">
+            <!-- Sparkle particles -->
+            <div class="sparkles" aria-hidden="true">
+                <span class="sp sp1">✦</span><span class="sp sp2">✦</span>
+                <span class="sp sp3">✦</span><span class="sp sp4">✦</span>
+                <span class="sp sp5">✦</span><span class="sp sp6">✦</span>
+            </div>
+
+            <div class="popup-badge">🎓 Admissions Open</div>
+            <h2 class="popup-title">2026–28 Batch<br /><span>Now Enrolling!</span></h2>
+            <p class="popup-sub">
+                B.Ed &amp; M.Ed from Kerala PSC approved universities.<br />
+                <strong>Limited seats — don't miss your chance.</strong>
+            </p>
+
+            <div class="popup-features">
+                <div class="popup-feat"><span>✅</span> Kerala PSC Approved</div>
+                <div class="popup-feat"><span>🏛️</span> TNTEU &amp; SV University</div>
+                <div class="popup-feat"><span>📱</span> DiGi Learning App Included</div>
+                <div class="popup-feat"><span>📚</span> Free Textbooks &amp; Notes</div>
+            </div>
+
+            <a href="#apply" class="btn-primary popup-cta" id="popup-cta">
+                Enroll Now — It's Free ✦
+            </a>
+            <button class="popup-later" id="popup-later">Maybe Later</button>
+
+            <div class="popup-timer">
+                Auto-closing in <span id="popup-countdown">8</span>s
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
        NAVBAR
   ═════════════════════════════════════════════════════════ -->
-    <nav aria-label="Main navigation">
+    <nav class="main-nav" aria-label="Main navigation">
         <a href="#home" class="nav-logo">
             <img src="assets/images/logo.png" alt="Digital Point logo" class="logo-img" />
             Digital <span class="accent">Point</span>
@@ -172,6 +211,89 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+       ACHIEVEMENTS CAROUSEL
+  ═════════════════════════════════════════════════════════ -->
+    <section class="carousel-section" aria-label="Our achievements">
+        <div class="container">
+            <div class="center-text">
+                <div class="section-label reveal">Our Achievements</div>
+                <h2 class="section-title reveal">Why Students <span>Choose Us</span></h2>
+            </div>
+
+            <div class="carousel-wrapper reveal">
+                <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous">‹</button>
+
+                <div class="carousel-track-outer">
+                    <div class="carousel-track" id="carousel-track">
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">🎓</div>
+                            <div class="ach-num">2,400+</div>
+                            <div class="ach-title">Students Enrolled</div>
+                            <p class="ach-desc">Successful B.Ed &amp; M.Ed admissions handled since our founding.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">✅</div>
+                            <div class="ach-num">98%</div>
+                            <div class="ach-title">Admission Success Rate</div>
+                            <p class="ach-desc">Industry-leading success rate with end-to-end documentation support.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">🏛️</div>
+                            <div class="ach-num">2</div>
+                            <div class="ach-title">Partner Universities</div>
+                            <p class="ach-desc">TNTEU &amp; SV University — both Kerala PSC and UGC approved.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">📜</div>
+                            <div class="ach-num">3</div>
+                            <div class="ach-title">University Equivalency</div>
+                            <p class="ach-desc">Equivalency from Kerala, Kannur &amp; Calicut Universities.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">📱</div>
+                            <div class="ach-num">1</div>
+                            <div class="ach-title">Official Learning App</div>
+                            <p class="ach-desc">DiGi Learning App with live classes, notes &amp; question papers — free.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">🧑‍🏫</div>
+                            <div class="ach-num">7</div>
+                            <div class="ach-title">B.Ed Specialisations</div>
+                            <p class="ach-desc">English, Maths, Science, Commerce, Computer Science, Social Science &amp; more.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">⚡</div>
+                            <div class="ach-num">7–10</div>
+                            <div class="ach-title">Days to Admission</div>
+                            <p class="ach-desc">Fast-track processing — admission letter in your hands within days.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="ach-icon">📚</div>
+                            <div class="ach-num">100%</div>
+                            <div class="ach-title">Free Study Material</div>
+                            <p class="ach-desc">All 4 semester textbooks, class notes and PYQs provided at no cost.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next">›</button>
+            </div>
+
+            <!-- Dot indicators -->
+            <div class="carousel-dots" id="carousel-dots" aria-label="Slide indicators"></div>
         </div>
     </section>
 
@@ -671,10 +793,12 @@
         </div>
     </footer>
 
-    <script src="assets/js/reveal.js" defer></script>
-    <script src="assets/js/counters.js" defer></script>
+    <script src="assets/js/reveal.js"       defer></script>
+    <script src="assets/js/counters.js"     defer></script>
     <script src="assets/js/interactions.js" defer></script>
-    <script src="assets/js/gallery.js" defer></script>
+    <script src="assets/js/gallery.js"      defer></script>
+    <script src="assets/js/popup.js"        defer></script>
+    <script src="assets/js/carousel.js"     defer></script>
 
 </body>
 

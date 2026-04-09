@@ -1,0 +1,328 @@
+/* ============================================================
+   POPUP & CAROUSEL — Entry modal + Achievement slider
+   ============================================================ */
+
+/* ═══════════════════════════════════════════════════════════
+   ENTRY POPUP
+═══════════════════════════════════════════════════════════ */
+.entry-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+.entry-popup.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.popup-card {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  width: 100%;
+  border-radius: 28px;
+  padding: 48px 44px 38px;
+  background: linear-gradient(145deg, #040e28 0%, #0a1e44 50%, #0d1060 100%);
+  border: 1px solid rgba(0, 229, 255, 0.30);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 40px 100px rgba(0, 0, 0, 0.70),
+    0 0 80px rgba(0, 100, 255, 0.18);
+  text-align: center;
+  transform: translateY(24px) scale(0.96);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+.entry-popup.open .popup-card {
+  transform: translateY(0) scale(1);
+}
+
+/* Top glow line */
+.popup-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 15%; right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.9;
+}
+
+/* ── Sparkles ──────────────────────────────────────────────── */
+.sparkles { position: absolute; inset: 0; pointer-events: none; }
+.sp {
+  position: absolute;
+  color: var(--cyan);
+  opacity: 0;
+  animation: sparkle 3s ease-in-out infinite;
+  font-size: 1rem;
+}
+.sp1  { top: 12%; left: 8%;   animation-delay: 0.0s; font-size: 0.7rem; }
+.sp2  { top: 20%; right: 10%; animation-delay: 0.6s; }
+.sp3  { top: 55%; left: 5%;   animation-delay: 1.2s; font-size: 0.8rem; }
+.sp4  { top: 70%; right: 8%;  animation-delay: 0.4s; font-size: 0.65rem; }
+.sp5  { top: 85%; left: 18%;  animation-delay: 1.8s; }
+.sp6  { top: 40%; right: 4%;  animation-delay: 0.9s; font-size: 0.75rem; }
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  50%       { opacity: 0.8; transform: scale(1.3) rotate(180deg); }
+}
+
+/* ── Popup content ─────────────────────────────────────────── */
+.popup-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.30);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.popup-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.popup-title span {
+  background: linear-gradient(90deg, #00b4d8, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.popup-sub {
+  font-size: 0.95rem;
+  color: var(--white-60);
+  line-height: 1.65;
+  margin-bottom: 26px;
+}
+.popup-sub strong { color: var(--white-80); }
+
+.popup-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.popup-feat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.82rem;
+  color: var(--white-80);
+  font-weight: 500;
+  text-align: left;
+}
+
+.popup-cta {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 18px 32px;
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.40);
+  margin-bottom: 14px;
+}
+
+.popup-later {
+  background: none;
+  border: none;
+  color: var(--white-60);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.popup-later:hover { color: var(--white); }
+
+.popup-timer {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.30);
+  letter-spacing: 0.04em;
+}
+.popup-timer span { color: var(--cyan); font-weight: 600; }
+
+@media (max-width: 520px) {
+  .popup-card { padding: 36px 24px 28px; }
+  .popup-features { grid-template-columns: 1fr; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ACHIEVEMENT CAROUSEL
+═══════════════════════════════════════════════════════════ */
+.carousel-section {
+  position: relative;
+  z-index: 1;
+  padding: 80px var(--space-xl) 60px;
+  background: rgba(0, 10, 30, 0.40);
+  border-top: 1px solid var(--white-06);
+  border-bottom: 1px solid var(--white-06);
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 44px;
+}
+
+/* Prev / Next buttons */
+.carousel-btn {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.10);
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  color: var(--cyan);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  z-index: 2;
+}
+.carousel-btn:hover { background: rgba(0, 229, 255, 0.22); transform: scale(1.08); }
+
+/* Track container hides overflow */
+.carousel-track-outer {
+  overflow: hidden;
+  flex: 1;
+  border-radius: var(--radius-md);
+}
+
+/* Sliding track */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Achievement card */
+.achievement-card {
+  flex: 0 0 calc(25% - 15px);   /* 4 visible on desktop */
+  min-width: 0;
+  border-radius: var(--radius-lg);
+  padding: 32px 26px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  transition: border-color var(--transition-normal), transform var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+.achievement-card:hover {
+  border-color: rgba(0, 229, 255, 0.30);
+  transform: translateY(-6px);
+}
+.achievement-card:hover::before { opacity: 1; }
+
+.ach-icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.40));
+}
+
+.ach-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #0070f3, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.ach-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.ach-desc {
+  font-size: 0.80rem;
+  color: var(--white-60);
+  line-height: 1.6;
+}
+
+/* Dot indicators */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.20);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), width var(--transition-fast);
+}
+.carousel-dot.active {
+  background: var(--cyan);
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.50);
+}
+
+/* ── Carousel responsive ───────────────────────────────────── */
+@media (max-width: 1100px) {
+  .achievement-card { flex: 0 0 calc(33.333% - 14px); } /* 3 visible */
+}
+@media (max-width: 768px) {
+  .achievement-card { flex: 0 0 calc(50% - 10px); }     /* 2 visible */
+  .carousel-section { padding-left: 20px; padding-right: 20px; }
+  .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
+}
+@media (max-width: 480px) {
+  .achievement-card { flex: 0 0 calc(100% - 0px); }     /* 1 visible */
+  .carousel-wrapper { gap: 8px; }
+}
