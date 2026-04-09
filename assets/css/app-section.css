@@ -1,0 +1,278 @@
+/* ============================================================
+   APP SHOWCASE SECTION — DiGi Learning App
+   ============================================================ */
+
+.app-section {
+  position: relative;
+  z-index: 1;
+  padding: 100px var(--space-xl);
+  overflow: hidden;
+}
+
+/* Subtle tinted glow behind section */
+.app-section::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -200px;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 80, 220, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+.app-section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -150px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Two-column layout ─────────────────────────────────────── */
+.app-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PHONE MOCKUP (left column)
+══════════════════════════════════════════════════════════════ */
+.app-mockup-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.app-mockup {
+  position: relative;
+  width: 280px;
+}
+
+/* Glow halos */
+.phone-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.phone-glow-1 {
+  width: 320px; height: 320px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.18) 0%, transparent 70%);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+.phone-glow-2 {
+  width: 420px; height: 420px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0, 60, 200, 0.12) 0%, transparent 65%);
+  animation: glowPulse 4s ease-in-out infinite 1s;
+}
+@keyframes glowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50%       { transform: translate(-50%, -50%) scale(1.08); opacity: 0.7; }
+}
+
+/* Phone frame */
+.phone-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 9 / 19;
+  border-radius: 40px;
+  background: linear-gradient(160deg, #0d1f3c, #060d20);
+  border: 2px solid rgba(0, 229, 255, 0.40);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 30px 80px rgba(0, 0, 0, 0.70),
+    0 0 40px rgba(0, 229, 255, 0.15);
+  overflow: hidden;
+  animation: phoneFloat 6s ease-in-out infinite;
+}
+@keyframes phoneFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Notch */
+.phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 20px;
+  background: #060d20;
+  border-radius: 10px;
+  z-index: 2;
+  border: 1px solid rgba(0, 229, 255, 0.15);
+}
+
+/* Screen area */
+.phone-screen {
+  position: absolute;
+  inset: 8px;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #080f22;
+}
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder when no screenshot added yet */
+.phone-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 20px;
+}
+.phone-placeholder span { font-size: 3rem; opacity: 0.4; }
+.phone-placeholder p    { font-size: 0.75rem; color: var(--white-60); line-height: 1.5; opacity: 0.6; }
+
+/* ── Floating badges around phone ──────────────────────────── */
+.app-badge-float {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(5, 15, 40, 0.90);
+  border: 1px solid rgba(0, 229, 255, 0.30);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--white-80);
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.50);
+  z-index: 2;
+}
+.app-bf-1 { top: 10%;  right: -30px; animation: floatBadge 5s ease-in-out infinite; }
+.app-bf-2 { top: 50%;  left: -36px;  animation: floatBadge 5s ease-in-out infinite 1.5s; }
+.app-bf-3 { bottom: 15%; right: -24px; animation: floatBadge 5s ease-in-out infinite 3s; }
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   APP COPY (right column)
+══════════════════════════════════════════════════════════════ */
+.app-copy { display: flex; flex-direction: column; gap: 0; }
+.app-copy .section-title { margin-bottom: 16px; }
+.app-copy .section-sub   { margin-bottom: 32px; }
+
+/* Feature rows */
+.app-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.app-feat-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.app-feat-row:hover {
+  border-color: rgba(0, 229, 255, 0.25);
+  background: rgba(0, 229, 255, 0.04);
+}
+.app-feat-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  width: 36px;
+  text-align: center;
+  margin-top: 2px;
+}
+.app-feat-row strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+.app-feat-row span {
+  font-size: 0.82rem;
+  color: var(--white-60);
+  line-height: 1.5;
+}
+
+/* Store buttons */
+.app-download-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--white);
+  min-width: 155px;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+.store-btn:hover {
+  background: rgba(0, 229, 255, 0.10);
+  border-color: rgba(0, 229, 255, 0.40);
+  transform: translateY(-2px);
+}
+.store-btn svg { flex-shrink: 0; color: var(--white-80); }
+.store-btn small {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--white-60);
+  letter-spacing: 0.05em;
+  margin-bottom: 1px;
+}
+.store-btn strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--white);
+}
+
+/* Free note */
+.app-free-note {
+  font-size: 0.82rem;
+  color: var(--cyan);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .app-inner { grid-template-columns: 1fr; gap: 60px; }
+  .app-mockup-wrap { order: 2; }
+  .app-copy { order: 1; }
+  .app-mockup { width: 220px; }
+}
+
+@media (max-width: 768px) {
+  .app-section { padding-left: 20px; padding-right: 20px; }
+  .app-mockup  { width: 180px; }
+  .app-bf-1, .app-bf-2, .app-bf-3 { display: none; } /* hide floating badges on tiny screens */
+  .app-download-btns { flex-direction: column; }
+  .store-btn { width: 100%; justify-content: center; }
+}
