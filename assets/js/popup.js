@@ -45,6 +45,27 @@
       }, 1000);
     }
 
+    // Course poster mini-slider
+    (function initSlider() {
+      const track = document.getElementById('pcs-track');
+      const dotsWrap = document.getElementById('pcs-dots');
+      if (!track) return;
+      const slides = track.querySelectorAll('.pcs-slide');
+      const dots   = dotsWrap ? dotsWrap.querySelectorAll('.pcs-dot') : [];
+      if (!slides.length) return;
+
+      let current = 0;
+      function goTo(idx) {
+        current = (idx + slides.length) % slides.length;
+        slides.forEach((s, i) => {
+          s.style.transform = `translateX(${(i - current) * 100}%)`;
+        });
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+      dots.forEach((d) => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+      setInterval(() => goTo(current + 1), 2500);
+    })();
+
     // Show after delay
     setTimeout(openPopup, DELAY_MS);
 

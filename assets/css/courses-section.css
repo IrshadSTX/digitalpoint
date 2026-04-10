@@ -1,0 +1,193 @@
+/* ============================================================
+   COURSES SECTION — Horizontal scroll poster grid
+   + Popup mini image slider
+   ============================================================ */
+
+/* ── Courses scroll track ──────────────────────────────────── */
+.courses-scroll-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 4px 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,229,255,0.3) transparent;
+  margin-top: 40px;
+}
+.courses-scroll-track::-webkit-scrollbar {
+  height: 4px;
+}
+.courses-scroll-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.courses-scroll-track::-webkit-scrollbar-thumb {
+  background: rgba(0,229,255,0.3);
+  border-radius: 2px;
+}
+
+/* ── Individual course poster card ────────────────────────── */
+.course-poster-card {
+  flex: 0 0 200px;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  aspect-ratio: 4 / 5;
+  background: rgba(5,15,40,0.6);
+}
+.course-poster-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0,229,255,0.15);
+  border-color: rgba(0,229,255,0.3);
+}
+.course-poster-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.course-poster-card:hover img {
+  transform: scale(1.04);
+}
+
+/* Name label at bottom */
+.course-poster-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 12px 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+/* Lightbox overlay for full poster view */
+.course-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.course-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.course-lightbox img {
+  max-height: 90vh;
+  max-width: 90vw;
+  border-radius: 16px;
+  object-fit: contain;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+}
+.course-lightbox-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1.4rem;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.course-lightbox-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+.course-lightbox-name {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 24px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+/* ── Popup course mini-slider ──────────────────────────────── */
+.popup-course-slider {
+  width: 100%;
+  margin-bottom: 24px;
+  position: relative;
+}
+.pcs-track {
+  display: flex;
+  overflow: hidden;
+  border-radius: 14px;
+  position: relative;
+  height: 180px;
+}
+.pcs-slide {
+  flex: 0 0 100%;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pcs-slide img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.pcs-slide-name {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px 12px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #fff;
+  text-align: center;
+}
+.pcs-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+.pcs-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.3s, width 0.3s;
+  cursor: pointer;
+}
+.pcs-dot.active {
+  background: var(--cyan);
+  width: 18px;
+  border-radius: 3px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .course-poster-card { flex: 0 0 160px; }
+  .pcs-track { height: 150px; }
+  .pcs-slide img { height: 150px; }
+}
+@media (max-width: 480px) {
+  .course-poster-card { flex: 0 0 140px; }
+}

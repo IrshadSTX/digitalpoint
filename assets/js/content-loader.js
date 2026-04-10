@@ -141,19 +141,72 @@
     }).join('');
   }
 
-  /* ── 10. Popup features ───────────────────────────────── */
-  function renderPopupFeatures() {
-    const wrap = document.getElementById('popup-features');
-    if (!wrap) return;
-    const p = CONTENT.popup;
-    if (!p) return;
-    const feats = [p.feat1, p.feat2, p.feat3, p.feat4];
-    const icons = ['✅','🏛️','📱','📚'];
-    wrap.innerHTML = feats.map((f, i) => `
-      <div class="popup-feat"><span>${icons[i]}</span> ${f}</div>`).join('');
+  /* ── 10. Popup course slider ──────────────────────────── */
+  function renderPopupSlider() {
+    const track = document.getElementById('pcs-track');
+    const dotsWrap = document.getElementById('pcs-dots');
+    const courses = CONTENT.courses?.items;
+    if (!track || !courses?.length) return;
+
+    track.innerHTML = courses.map((c, i) => `
+      <div class="pcs-slide" style="transform:translateX(${-i * 100}%)">
+        <img src="${c.img}" alt="${c.name}" loading="lazy" />
+        <div class="pcs-slide-name">${c.name}</div>
+      </div>`).join('');
+
+    if (dotsWrap) {
+      dotsWrap.innerHTML = courses.map((_, i) =>
+        `<div class="pcs-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></div>`
+      ).join('');
+    }
   }
 
-  /* ── 11. Social links ─────────────────────────────────── */
+  /* ── 11. Courses scroll section ───────────────────────── */
+  function renderCoursesSection() {
+    const wrap = document.getElementById('courses-track');
+    const courses = CONTENT.courses?.items;
+    if (!wrap || !courses?.length) return;
+
+    wrap.innerHTML = courses.map((c) => `
+      <div class="course-poster-card reveal" data-course-img="${c.img}" data-course-name="${c.name}">
+        <img src="${c.img}" alt="${c.name}" loading="lazy" />
+        <div class="course-poster-label">${c.name}</div>
+      </div>`).join('');
+
+    // Lightbox
+    const lb = document.createElement('div');
+    lb.className = 'course-lightbox';
+    lb.id = 'course-lightbox';
+    lb.innerHTML = `
+      <button class="course-lightbox-close" id="clb-close" aria-label="Close">✕</button>
+      <img id="clb-img" src="" alt="" />
+      <div class="course-lightbox-name" id="clb-name"></div>`;
+    document.body.appendChild(lb);
+
+    wrap.querySelectorAll('.course-poster-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        document.getElementById('clb-img').src = card.dataset.courseImg;
+        document.getElementById('clb-img').alt = card.dataset.courseName;
+        document.getElementById('clb-name').textContent = card.dataset.courseName;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb || e.target.id === 'clb-close') {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lb.classList.contains('open')) {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  /* ── 12. Social links ─────────────────────────────────── */
   function injectSocialLinks() {
     const s = CONTENT.social;
     if (!s) return;
@@ -176,7 +229,8 @@
     renderTestimonials();
     renderPhotos();
     renderVideos();
-    renderPopupFeatures();
+    renderPopupSlider();
+    renderCoursesSection();
     injectSocialLinks();
   }
 

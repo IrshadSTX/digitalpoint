@@ -148,6 +148,23 @@ const CONTENT = {
     ],
   },
 
+  /* ── More Courses (admission posters) ────────────────── */
+  courses: {
+    section_label: "All Programmes",
+    section_title: "More Courses We Offer",
+    section_sub: "Beyond B.Ed & M.Ed — explore our full range of programmes for 2026–27.",
+    items: [
+      { name: "Ph.D Education", img: "assets/images/courses/8.jpg" },
+      { name: "LLB", img: "assets/images/courses/7.jpg" },
+      { name: "MSc Chemistry", img: "assets/images/courses/6.jpg" },
+      { name: "MSc Psychology", img: "assets/images/courses/5.jpg" },
+      { name: "MSc Physics", img: "assets/images/courses/1.jpg" },
+      { name: "MSc Zoology", img: "assets/images/courses/3.jpg" },
+      { name: "MSc Botany", img: "assets/images/courses/2.jpg" },
+      { name: "MSc Mathematics", img: "assets/images/courses/4.jpg" },
+    ],
+  },
+
   /* ── App download links ───────────────────────────────── */
   app: {
     android: "https://play.google.com/store/apps/details?id=co.stan.sbgwq",

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/popup-carousel.css" />
     <link rel="stylesheet" href="assets/css/app-section.css" />
+    <link rel="stylesheet" href="assets/css/courses-section.css" />
 </head>
 
 <body>
@@ -48,11 +49,10 @@
                 <strong data-c="popup.urgency">Limited seats — don't miss your chance.</strong>
             </p>
 
-            <div class="popup-features" id="popup-features">
-                <div class="popup-feat"><span>✅</span> Kerala PSC Approved</div>
-                <div class="popup-feat"><span>🏛️</span> TNTEU &amp; SV University</div>
-                <div class="popup-feat"><span>📱</span> DiGi Learning App Included</div>
-                <div class="popup-feat"><span>📚</span> Free Textbooks &amp; Notes</div>
+            <!-- Course poster mini-slider -->
+            <div class="popup-course-slider" id="popup-course-slider">
+                <div class="pcs-track" id="pcs-track"></div>
+                <div class="pcs-dots" id="pcs-dots"></div>
             </div>
 
             <a href="#apply" class="btn-primary popup-cta" id="popup-cta" data-c="popup.cta_btn">
@@ -77,6 +77,7 @@
 
         <ul class="nav-links" id="nav-links" role="list">
             <li><a href="#programs" class="nav-link-item">Programs</a></li>
+            <li><a href="#courses" class="nav-link-item">Courses</a></li>
             <li><a href="#app" class="nav-link-item">App</a></li>
             <li><a href="#process" class="nav-link-item">Admission</a></li>
             <li><a href="#why" class="nav-link-item">Why Us</a></li>
@@ -301,6 +302,20 @@
                                 <span>All 4 semester books provided at zero cost</span>
                             </div>
                         </div>
+                        <div class="app-feat-row">
+                            <div class="app-feat-icon">🗒️</div>
+                            <div>
+                                <strong>Teacher's Exclusive Notes</strong>
+                                <span>Handcrafted notes by expert faculty — exam-focused</span>
+                            </div>
+                        </div>
+                        <div class="app-feat-row">
+                            <div class="app-feat-icon">📋</div>
+                            <div>
+                                <strong>Model Question Papers</strong>
+                                <span>Semester-wise model papers to sharpen your exam prep</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="app-download-btns">
@@ -519,6 +534,19 @@
                 </article>
 
             </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+       MORE COURSES
+  ═════════════════════════════════════════════════════════ -->
+    <section class="section-tinted" id="courses">
+        <div class="container">
+            <div class="section-label" data-c="courses.section_label">All Programmes</div>
+            <h2 class="section-title reveal" data-c="courses.section_title">More Courses We Offer</h2>
+            <p class="section-sub reveal" data-c="courses.section_sub">Beyond B.Ed &amp; M.Ed — explore our full range of programmes for 2026–27.</p>
+
+            <div class="courses-scroll-track" id="courses-track"></div>
         </div>
     </section>
 
