@@ -148,6 +148,37 @@ const CONTENT = {
     ],
   },
 
+  /* ── Full Course Catalogue (UG / PG lists) ───────────── */
+  catalogue: {
+    ug: [
+      "B.A. Tamil Literature", "B.A. English Literature",
+      "B.Sc. Mathematics", "B.Sc. Mathematics with CA",
+      "B.Sc. Computer Science", "B.Sc. Information Technology",
+      "B.Sc. Computer Technology", "B.Sc. Software System",
+      "B.Sc. Physics", "B.Sc. Chemistry",
+      "B.Sc. Microbiology", "B.Sc. Biotechnology", "B.Sc. Biochemistry",
+      "B.Sc. Costume Design & Fashion", "B.Sc. Food Science & Nutrition",
+      "B.Sc. Psychology", "B.Sc. Visual Communication",
+      "B.Sc. Interior Design", "B.Sc. Catering Science & Hotel Management",
+      "B.Sc. Hospitality & Airline Hotel Management",
+      "B.Com", "B.Com with CA", "B.Com Professional Accounting",
+      "BBA", "BBA with CA", "BCA", "B.A. English with CA",
+    ],
+    pg: [
+      "M.A. Tamil Literature", "M.A. English", "M.A. English with CA",
+      "M.Sc. Mathematics", "M.Sc. Computer Science",
+      "M.Sc. Information Technology", "M.Sc. Computer Technology",
+      "M.Sc. Software System", "M.Sc. Physics", "M.Sc. Chemistry",
+      "M.Sc. Microbiology", "M.Sc. Biotechnology", "M.Sc. Biochemistry",
+      "M.Sc. Costume Design & Fashion", "M.Sc. Foods Science & Nutrition",
+      "M.Sc. Textile & Clothing", "M.Sc. Computer Communication",
+      "M.Com", "M.Com with CA", "M.Com Corporate Secretaryship",
+      "MBA", "MCA", "MSW",
+      "M.Phil – Computer Science & Management",
+      "Ph.D Management", "Ph.D Education",
+    ],
+  },
+
   /* ── More Courses (admission posters) ────────────────── */
   courses: {
     section_label: "All Programmes",

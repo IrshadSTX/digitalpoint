@@ -141,7 +141,33 @@
     }).join('');
   }
 
-  /* ── 10. Popup course slider ──────────────────────────── */
+  /* ── 10. Course catalogue ─────────────────────────────── */
+  function renderCatalogue() {
+    const ugWrap = document.getElementById('cat-ug');
+    const pgWrap = document.getElementById('cat-pg');
+    const cat = CONTENT.catalogue;
+    if (!cat) return;
+
+    function chips(list) {
+      return list.map((name) => `<span class="cat-chip">${name}</span>`).join('');
+    }
+    if (ugWrap && cat.ug) ugWrap.innerHTML = chips(cat.ug);
+    if (pgWrap && cat.pg) pgWrap.innerHTML = chips(cat.pg);
+
+    // Tab switching
+    document.querySelectorAll('.cat-tab').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-tab').forEach((b) => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        document.querySelectorAll('.cat-panel').forEach((p) => p.classList.remove('active'));
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+        const panel = document.getElementById('cat-' + btn.dataset.tab);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  }
+
+  /* ── 11. Popup course slider ─────────────────────────── */
   function renderPopupSlider() {
     const track = document.getElementById('pcs-track');
     const dotsWrap = document.getElementById('pcs-dots');
@@ -229,6 +255,7 @@
     renderTestimonials();
     renderPhotos();
     renderVideos();
+    renderCatalogue();
     renderPopupSlider();
     renderCoursesSection();
     injectSocialLinks();
