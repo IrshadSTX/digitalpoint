@@ -127,60 +127,7 @@
   white-space: nowrap;
 }
 
-/* ── Popup course mini-slider ──────────────────────────────── */
-.popup-course-slider {
-  width: 100%;
-  margin-bottom: 24px;
-  position: relative;
-}
-.pcs-track {
-  display: flex;
-  overflow: hidden;
-  border-radius: 14px;
-  position: relative;
-  height: 180px;
-}
-.pcs-slide {
-  flex: 0 0 100%;
-  position: relative;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.pcs-slide img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-}
-.pcs-slide-name {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 24px 12px 10px;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: #fff;
-  text-align: center;
-}
-.pcs-dots {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 10px;
-}
-.pcs-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  transition: background 0.3s, width 0.3s;
-  cursor: pointer;
-}
-.pcs-dot.active {
-  background: var(--cyan);
-  width: 18px;
-  border-radius: 3px;
-}
+/* Popup slider styles moved to popup-carousel.css */
 
 /* ── Course Catalogue (inside Programs section) ────────────── */
 .catalogue-wrap {

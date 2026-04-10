@@ -2,47 +2,34 @@
  * popup.js
  * Entry announcement popup modal.
  *   - Fades in 600ms after page load
- *   - Auto-closes after 8 seconds with countdown
- *   - Closes on CTA click, "Maybe Later", overlay click, or Escape
+ *   - Closes on CTA click, "Maybe Later", overlay click, × button, or Escape
  */
 
 (function () {
   'use strict';
 
-  const DELAY_MS    = 600;   // wait before showing
-  const AUTO_CLOSE  = 8;     // seconds
+  const DELAY_MS = 600;
 
   function init() {
-    const popup      = document.getElementById('entry-popup');
-    const overlay    = document.getElementById('popup-overlay');
-    const ctaBtn     = document.getElementById('popup-cta');
-    const laterBtn   = document.getElementById('popup-later');
-    const countdown  = document.getElementById('popup-countdown');
+    const popup   = document.getElementById('entry-popup');
+    const overlay = document.getElementById('popup-overlay');
+    const ctaBtn  = document.getElementById('popup-cta');
+    const laterBtn= document.getElementById('popup-later');
+    const closeBtn= document.getElementById('popup-close');
     if (!popup) return;
 
     // Don't show again if dismissed this session
     if (sessionStorage.getItem('popup-dismissed')) return;
 
-    let timer;
-    let remaining = AUTO_CLOSE;
-
     function closePopup() {
       popup.classList.remove('open');
       document.body.style.overflow = '';
-      clearInterval(timer);
       sessionStorage.setItem('popup-dismissed', '1');
     }
 
     function openPopup() {
       popup.classList.add('open');
       document.body.style.overflow = 'hidden';
-
-      // Countdown
-      timer = setInterval(() => {
-        remaining--;
-        if (countdown) countdown.textContent = remaining;
-        if (remaining <= 0) closePopup();
-      }, 1000);
     }
 
     // Course poster mini-slider
@@ -57,9 +44,7 @@
       let current = 0;
       function goTo(idx) {
         current = (idx + slides.length) % slides.length;
-        slides.forEach((s, i) => {
-          s.style.transform = `translateX(${(i - current) * 100}%)`;
-        });
+        slides.forEach((s, i) => s.classList.toggle('active', i === current));
         dots.forEach((d, i) => d.classList.toggle('active', i === current));
       }
       dots.forEach((d) => d.addEventListener('click', () => goTo(+d.dataset.idx)));
@@ -73,6 +58,7 @@
     overlay  && overlay.addEventListener('click', closePopup);
     laterBtn && laterBtn.addEventListener('click', closePopup);
     ctaBtn   && ctaBtn.addEventListener('click', closePopup);
+    closeBtn && closeBtn.addEventListener('click', closePopup);
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closePopup();

@@ -35,6 +35,8 @@
     <div class="entry-popup" id="entry-popup" role="dialog" aria-modal="true" aria-label="Admissions announcement">
         <div class="popup-overlay" id="popup-overlay"></div>
         <div class="popup-card">
+            <button class="popup-close" id="popup-close" aria-label="Close">✕</button>
+
             <!-- Sparkle particles -->
             <div class="sparkles" aria-hidden="true">
                 <span class="sp sp1">✦</span><span class="sp sp2">✦</span>
@@ -42,26 +44,37 @@
                 <span class="sp sp5">✦</span><span class="sp sp6">✦</span>
             </div>
 
-            <div class="popup-badge" data-c="popup.badge">🎓 Admissions Open</div>
-            <h2 class="popup-title"><span data-c="popup.title_line1">2026–28 Batch</span><br /><span data-c="popup.title_line2">Now Enrolling!</span></h2>
-            <p class="popup-sub">
-                <span data-c="popup.subtitle">B.Ed &amp; M.Ed from Kerala PSC approved universities.</span><br />
-                <strong data-c="popup.urgency">Limited seats — don't miss your chance.</strong>
-            </p>
+            <div class="popup-inner">
 
-            <!-- Course poster mini-slider -->
-            <div class="popup-course-slider" id="popup-course-slider">
-                <div class="pcs-track" id="pcs-track"></div>
-                <div class="pcs-dots" id="pcs-dots"></div>
-            </div>
+                <!-- Left: poster slider -->
+                <div class="popup-poster-side">
+                    <div class="pcs-track" id="pcs-track"></div>
+                    <div class="pcs-dots" id="pcs-dots"></div>
+                </div>
 
-            <a href="#apply" class="btn-primary popup-cta" id="popup-cta" data-c="popup.cta_btn">
-                Enroll Now — It's Free ✦
-            </a>
-            <button class="popup-later" id="popup-later" data-c="popup.later_btn">Maybe Later</button>
+                <!-- Right: text + CTA -->
+                <div class="popup-content-side">
+                    <div class="popup-badge" data-c="popup.badge">🎓 Admissions Open</div>
+                    <h2 class="popup-title">
+                        <span data-c="popup.title_line1">2026–28 Batch</span><br />
+                        <span data-c="popup.title_line2">Now Enrolling!</span>
+                    </h2>
+                    <p class="popup-sub">
+                        <span data-c="popup.subtitle">B.Ed &amp; M.Ed from Kerala PSC approved universities.</span><br />
+                        <strong data-c="popup.urgency">Limited seats — don't miss your chance.</strong>
+                    </p>
+                    <div class="popup-bullets">
+                        <div class="popup-bullet"><span>✅</span> Kerala PSC Approved</div>
+                        <div class="popup-bullet"><span>🏛️</span> TNTEU &amp; SV University</div>
+                        <div class="popup-bullet"><span>📱</span> DiGi Learning App</div>
+                        <div class="popup-bullet"><span>📚</span> Free Study Material</div>
+                    </div>
+                    <a href="#apply" class="btn-primary popup-cta" id="popup-cta" data-c="popup.cta_btn">
+                        Enroll Now ✦
+                    </a>
+                    <button class="popup-later" id="popup-later" data-c="popup.later_btn">Maybe Later</button>
+                </div>
 
-            <div class="popup-timer">
-                Auto-closing in <span id="popup-countdown">8</span>s
             </div>
         </div>
     </div>
