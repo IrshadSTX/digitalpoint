@@ -263,21 +263,85 @@
 }
 .popup-later:hover { color: var(--white); }
 
-/* ── Mobile: stack vertically ────────────────────────────── */
-@media (max-width: 600px) {
+/* ── Mobile only (≤768px) ────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Card scrolls if content overflows — no flex height chains */
+  .popup-card {
+    max-height: 92vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 20px;
+    display: block;
+    height: auto;
+  }
+
+  /* Simple block stack */
   .popup-inner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    min-height: unset;
   }
+
   .popup-poster-side {
-    border-radius: 24px 24px 0 0;
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+    border-radius: 20px 20px 0 0;
+    background: #0a1532;
+    overflow: hidden;
   }
-  .pcs-track { min-height: 220px; }
+
+  /*
+   * Explicit height = modal width × A4 ratio.
+   * position:absolute children fill content-box height — padding-bottom
+   * tricks don't work here (absolute children skip the padding area).
+   * calc() gives a real, measurable height that inset:0 can fill.
+   * min() caps it at 68vh so it doesn't overwhelm wide/landscape phones.
+   */
+  .pcs-track {
+    position: relative;
+    width: 100%;
+    height: min(calc((100vw - 32px) * 1.414), 68vh);
+    min-height: unset;
+    max-height: unset;
+    aspect-ratio: unset;
+    flex: none;
+    overflow: hidden;
+  }
+
+  /* Slide bg matches modal — blends any empty edges if image is letterboxed */
+  .pcs-slide {
+    background: #0a1532;
+  }
+
+  /* Full A4 image — contain keeps everything visible, nothing cropped */
+  .pcs-slide img {
+    object-fit: contain;
+    object-position: top center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .pcs-slide-name { display: none; }
+
+  /* Dots sit flush below image */
+  .pcs-dots {
+    display: flex;
+    background: #0a1532;
+    padding: 8px 0;
+  }
+
   .popup-content-side {
-    padding: 24px 20px 20px;
+    padding: 20px 20px 24px;
     text-align: center;
+    justify-content: flex-start;
   }
-  .popup-badge { margin-left: auto; margin-right: auto; }
-  .popup-bullets { align-items: flex-start; padding-left: 20px; }
+
+  .popup-badge   { margin: 0 auto 14px; }
+  .popup-title   { font-size: 1.4rem; margin-bottom: 8px; }
+  .popup-sub     { font-size: 0.82rem; margin-bottom: 14px; }
+  .popup-bullets { align-items: flex-start; padding-left: 8px; text-align: left; margin-bottom: 18px; }
+  .popup-cta     { margin-bottom: 10px; }
 }
 
 
