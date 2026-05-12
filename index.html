@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="assets/css/app-section.css" />
     <link rel="stylesheet" href="assets/css/courses-section.css" />
     <link rel="stylesheet" href="assets/css/map-section.css" />
+    <link rel="stylesheet" href="assets/css/marquee-section.css" />
+    <link rel="stylesheet" href="assets/css/institute-hero.css" />
 </head>
 
 <body>
@@ -114,6 +116,46 @@
 
     <!-- Mobile nav backdrop -->
     <div class="nav-backdrop" id="nav-backdrop"></div>
+
+    <!-- ════════════════════════════════════════════════════════
+       INSTITUTE HERO SLIDER — fullscreen spotlight
+       Add photos to assets/images/institute/1.jpg – 5.jpg
+  ═════════════════════════════════════════════════════════ -->
+    <section class="inst-hero" id="inst-slider">
+
+        <!-- Slides -->
+        <div class="ih-slides" id="ih-slides">
+            <div class="ih-slide ih-active" style="background-image:url('assets/images/institute/1.jpeg')"></div>
+            <div class="ih-slide" style="background-image:url('assets/images/institute/2.jpeg')"></div>
+            <div class="ih-slide" style="background-image:url('assets/images/institute/3.jpeg')"></div>
+            <div class="ih-slide" style="background-image:url('assets/images/institute/4.jpeg')"></div>
+        </div>
+
+        <!-- Bottom gradient overlay only -->
+        <div class="ih-overlay-bottom"></div>
+
+        <!-- Bottom bar: label left · dots centre · arrows right -->
+        <div class="ih-bottom-bar">
+
+            <div class="ih-label-wrap">
+                <span class="ih-live-dot"></span>
+                <span class="ih-label-text">Digital Point &nbsp;·&nbsp; Areekode, Malappuram</span>
+            </div>
+
+            <div class="ih-dots" id="ih-dots" aria-label="Slide indicators"></div>
+
+            <div class="ih-arrow-pill">
+                <button id="ih-prev" aria-label="Previous slide">&#8592;</button>
+                <span class="ih-pill-divider"></span>
+                <button id="ih-next" aria-label="Next slide">&#8594;</button>
+            </div>
+
+        </div>
+
+        <!-- Thin progress bar -->
+        <div class="ih-progress" id="ih-progress"></div>
+
+    </section>
 
     <!-- ════════════════════════════════════════════════════════
        HERO
@@ -235,6 +277,105 @@
 
         </div>
     </section>
+
+    <!-- ════════════════════════════════════════════════════════
+       MARQUEE — Course posters + achievements
+  ═════════════════════════════════════════════════════════ -->
+    <div class="marquee-section" aria-hidden="true">
+
+        <!-- Row 1 — Course posters, scroll left -->
+        <div class="mq-fade-wrap">
+            <div class="mq-track mq-left mq-slow">
+
+                <!-- Original set -->
+                <div class="mq-poster"><img src="assets/images/courses/4.jpeg" alt="MSc Mathematics"
+                        loading="lazy" /><span>MSc Mathematics</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/5.jpeg" alt="MSc Psychology"
+                        loading="lazy" /><span>MSc Psychology</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/1.jpeg" alt="MSc Physics"
+                        loading="lazy" /><span>MSc Physics</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/6.jpeg" alt="MSc Chemistry"
+                        loading="lazy" /><span>MSc Chemistry</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/3.jpeg" alt="MSc Zoology"
+                        loading="lazy" /><span>MSc Zoology</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/2.jpeg" alt="MSc Botany"
+                        loading="lazy" /><span>MSc Botany</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/7.jpeg" alt="LLB"
+                        loading="lazy" /><span>LLB</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/8.jpeg" alt="Ph.D Education"
+                        loading="lazy" /><span>Ph.D Education</span></div>
+
+                <!-- Duplicate set for seamless loop -->
+                <div class="mq-poster"><img src="assets/images/courses/4.jpeg" alt="" loading="lazy" /><span>MSc
+                        Mathematics</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/5.jpeg" alt="" loading="lazy" /><span>MSc
+                        Psychology</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/1.jpeg" alt="" loading="lazy" /><span>MSc
+                        Physics</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/6.jpeg" alt="" loading="lazy" /><span>MSc
+                        Chemistry</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/3.jpeg" alt="" loading="lazy" /><span>MSc
+                        Zoology</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/2.jpeg" alt="" loading="lazy" /><span>MSc
+                        Botany</span></div>
+                <div class="mq-poster"><img src="assets/images/courses/7.jpeg" alt="" loading="lazy" /><span>LLB</span>
+                </div>
+                <div class="mq-poster"><img src="assets/images/courses/8.jpeg" alt="" loading="lazy" /><span>Ph.D
+                        Education</span></div>
+            </div>
+        </div>
+
+        <!-- Row 2 — Achievement pills, scroll right -->
+        <div class="mq-fade-wrap">
+            <div class="mq-track mq-right mq-fast">
+
+                <!-- Original set -->
+                <div class="mq-badge"><span class="mq-b-icon">🎓</span><span class="mq-b-num">2,400+</span><span
+                        class="mq-b-label">Students Placed</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">✅</span><span class="mq-b-num">Kerala
+                        PSC</span><span class="mq-b-label">Approved Degrees</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">📊</span><span class="mq-b-num">98%</span><span
+                        class="mq-b-label">Success Rate</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">🏛️</span><span
+                        class="mq-b-num">3</span><span class="mq-b-label">University Equivalency</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">📜</span><span class="mq-b-num">UGC / NCTE</span><span
+                        class="mq-b-label">Nationally Recognised</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">📚</span><span
+                        class="mq-b-num">Free</span><span class="mq-b-label">Study Material</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">📱</span><span class="mq-b-num">DiGi App</span><span
+                        class="mq-b-label">Live &amp; Recorded Classes</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">🌟</span><span
+                        class="mq-b-num">7</span><span class="mq-b-label">Specialisations</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">🏆</span><span class="mq-b-num">UPSC</span><span
+                        class="mq-b-label">Approved Credentials</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">📞</span><span
+                        class="mq-b-num">Free</span><span class="mq-b-label">Admission Counselling</span></div>
+
+                <!-- Duplicate set -->
+                <div class="mq-badge"><span class="mq-b-icon">🎓</span><span class="mq-b-num">2,400+</span><span
+                        class="mq-b-label">Students Placed</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">✅</span><span class="mq-b-num">Kerala
+                        PSC</span><span class="mq-b-label">Approved Degrees</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">📊</span><span class="mq-b-num">98%</span><span
+                        class="mq-b-label">Success Rate</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">🏛️</span><span
+                        class="mq-b-num">3</span><span class="mq-b-label">University Equivalency</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">📜</span><span class="mq-b-num">UGC / NCTE</span><span
+                        class="mq-b-label">Nationally Recognised</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">📚</span><span
+                        class="mq-b-num">Free</span><span class="mq-b-label">Study Material</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">📱</span><span class="mq-b-num">DiGi App</span><span
+                        class="mq-b-label">Live &amp; Recorded Classes</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">🌟</span><span
+                        class="mq-b-num">7</span><span class="mq-b-label">Specialisations</span></div>
+                <div class="mq-badge"><span class="mq-b-icon">🏆</span><span class="mq-b-num">UPSC</span><span
+                        class="mq-b-label">Approved Credentials</span></div>
+                <div class="mq-badge mq-badge--cyan"><span class="mq-b-icon">📞</span><span
+                        class="mq-b-num">Free</span><span class="mq-b-label">Admission Counselling</span></div>
+            </div>
+        </div>
+
+    </div>
 
     <!-- ════════════════════════════════════════════════════════
        APP SHOWCASE — DiGi Learning App (primary feature)
@@ -801,10 +942,8 @@
                 <div class="map-embed-wrap">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d976.5!2d76.0545442!3d11.2408542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64713522563e1%3A0xa3a1c663b1bfe9ff!2sDigital%20Point!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin"
-                        width="100%" height="100%"
-                        style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Digital Point location on Google Maps">
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Digital Point location on Google Maps">
                     </iframe>
                 </div>
 
@@ -839,9 +978,8 @@
                         </div>
                     </div>
 
-                    <a href="https://maps.app.goo.gl/CghRGWtbkqPRtNrk7"
-                       target="_blank" rel="noopener"
-                       class="btn-primary map-directions-btn">
+                    <a href="https://maps.app.goo.gl/CghRGWtbkqPRtNrk7" target="_blank" rel="noopener"
+                        class="btn-primary map-directions-btn">
                         Get Directions ↗
                     </a>
 
@@ -958,6 +1096,7 @@
     <script src="assets/js/gallery.js" defer></script>
     <script src="assets/js/popup.js" defer></script>
     <script src="assets/js/carousel.js" defer></script>
+    <script src="assets/js/institute-hero.js" defer></script>
 
 </body>
 

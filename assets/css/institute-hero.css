@@ -1,0 +1,265 @@
+/* ============================================================
+   INSTITUTE HERO SLIDER
+   Full-viewport photo spotlight. Navbar overlays transparently.
+   Photos go in  assets/images/institute/1.jpg – 5.jpg
+   ============================================================ */
+
+/* ── Section shell ───────────────────────────────────────── */
+.inst-hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 400px;
+  overflow: hidden;
+  background: #06111f;       /* fallback while images load */
+  z-index: 1;                /* sit above the fixed bg-mesh / bg-grid */
+}
+
+/* ── Slides ──────────────────────────────────────────────── */
+.ih-slides {
+  position: absolute;
+  inset: 0;
+}
+
+.ih-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #06111f;   /* solid fallback — prevents bg-mesh bleed */
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.1s ease, transform 7s ease;
+  will-change: opacity, transform;
+}
+
+.ih-slide.ih-active {
+  opacity: 1;
+  transform: scale(1);        /* Ken Burns: zoom to natural size */
+}
+
+/* Placeholder gradient when image is missing or not yet added */
+.ih-slide.ih-no-img {
+  background-image: none !important;
+  background: linear-gradient(135deg, #040e28 0%, #0a1e44 55%, #081060 100%);
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Top gradient — keeps navbar text readable over any image ── */
+.inst-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 140px;
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 10, 28, 0.72) 0%,
+    rgba(4, 10, 28, 0.30) 60%,
+    transparent 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── Bottom gradient — creates depth, shows bottom bar clearly ── */
+.ih-overlay-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 45%;
+  background: linear-gradient(
+    to top,
+    rgba(4, 10, 28, 0.90) 0%,
+    rgba(4, 10, 28, 0.55) 40%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Bottom bar ──────────────────────────────────────────── */
+.ih-bottom-bar {
+  position: absolute;
+  bottom: 32px;
+  left: 40px;
+  right: 40px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ── Label (bottom-left) ─────────────────────────────────── */
+.ih-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.50);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 18px;
+  border-radius: 100px;
+}
+
+.ih-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00e5ff;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+  flex-shrink: 0;
+  animation: ihPulse 2s ease-in-out infinite;
+}
+
+@keyframes ihPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(0,229,255,0.8); }
+  50%       { opacity: 0.5; box-shadow: 0 0 3px rgba(0,229,255,0.3); }
+}
+
+.ih-label-text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.90);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ── Dots (centre) ───────────────────────────────────────── */
+.ih-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ih-dot-btn {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, width 0.3s, border-radius 0.3s;
+}
+
+.ih-dot-btn.ih-dot-active {
+  background: #fff;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Combined arrow pill (bottom-right) ──────────────────── */
+.ih-arrow-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 100px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.ih-arrow-pill button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #06111f;
+  font-size: 1.25rem;
+  font-weight: 700;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  line-height: 1;
+}
+
+.ih-arrow-pill button:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.ih-pill-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+/* ── Progress bar ────────────────────────────────────────── */
+.ih-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #00e5ff, #0070f3);
+  z-index: 5;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  transition: width linear;
+}
+
+/* ── Navbar: transparent + readable when over the slider ────── */
+nav.main-nav.ih-at-top {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+
+/* Force all nav text white + text-shadow so it reads on any photo */
+nav.main-nav.ih-at-top .nav-link-item,
+nav.main-nav.ih-at-top .nav-logo {
+  color: #ffffff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+}
+
+nav.main-nav.ih-at-top .nav-logo .accent {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+}
+
+nav.main-nav.ih-at-top .nav-link-item:hover {
+  color: var(--cyan, #00e5ff);
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ih-slide { transition: opacity 0.8s ease; transform: none !important; }
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /*
+   * Use vw-based height instead of vh so the container stays
+   * landscape-proportioned on portrait phones.
+   * 56vw ≈ 16:9 ratio — landscape group photos fill edge-to-edge
+   * with no side-cropping. max() keeps a decent minimum on tiny screens.
+   */
+  .inst-hero {
+    height: max(56vw, 220px);
+    min-height: unset;
+  }
+
+  .ih-bottom-bar {
+    bottom: 14px;
+    left: 12px;
+    right: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ih-label-wrap { padding: 7px 12px; }
+  .ih-label-text { font-size: 0.72rem; }
+
+  .ih-dots { order: 3; width: 100%; justify-content: center; margin-top: 2px; }
+
+  .ih-arrow-pill button { width: 40px; height: 40px; font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+  .ih-label-wrap { display: none; }
+}

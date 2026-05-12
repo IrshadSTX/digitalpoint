@@ -1,0 +1,204 @@
+/* ============================================================
+   MARQUEE SECTION — Infinite auto-scroll, two rows
+   ============================================================ */
+
+.marquee-section {
+  width: 100%;
+  overflow: hidden;
+  padding: 48px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 14, 40, 0) 0%,
+    rgba(4, 14, 40, 0.55) 20%,
+    rgba(4, 14, 40, 0.55) 80%,
+    rgba(4, 14, 40, 0) 100%
+  );
+  position: relative;
+}
+
+/* Soft top/bottom divider lines */
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.18), transparent);
+}
+.marquee-section::before { top: 0; }
+.marquee-section::after  { bottom: 0; }
+
+/* ── Fade wrapper — masks left & right edges ─────────────── */
+.mq-fade-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+/* ── Scrolling track ─────────────────────────────────────── */
+.mq-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 16px;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.mq-track:hover { animation-play-state: paused; }
+
+/* Direction variants */
+.mq-left  { animation: mq-scroll-left  linear infinite; }
+.mq-right { animation: mq-scroll-right linear infinite; }
+
+/* Speed variants */
+.mq-slow { animation-duration: 38s; }
+.mq-fast { animation-duration: 28s; }
+
+@keyframes mq-scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes mq-scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .mq-track { animation-play-state: paused !important; }
+}
+
+/* ── Row 1: Course poster cards ──────────────────────────── */
+.mq-poster {
+  position: relative;
+  flex-shrink: 0;
+  width: 160px;
+  height: 226px;          /* A4 portrait: 160 × 1.414 = 226 */
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.mq-poster:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(0, 229, 255, 0.20),
+    0 0 0 1px rgba(0, 229, 255, 0.28) inset;
+}
+
+.mq-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Label at the bottom of poster */
+.mq-poster > span {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 10px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.88), transparent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* ── Row 2: Achievement badge pills ──────────────────────── */
+.mq-badge {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  white-space: nowrap;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.mq-badge:hover {
+  background: rgba(0, 229, 255, 0.07);
+  border-color: rgba(0, 229, 255, 0.25);
+}
+
+/* Cyan-accented variant */
+.mq-badge--cyan {
+  background: rgba(0, 229, 255, 0.06);
+  border-color: rgba(0, 229, 255, 0.18);
+}
+
+.mq-b-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.mq-b-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.05rem;
+  background: linear-gradient(135deg, #00b4d8, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.mq-b-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ── Mobile tweaks ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .marquee-section {
+    padding: 36px 0 40px;
+    gap: 14px;
+  }
+
+  .mq-poster {
+    width: 128px;
+    height: 181px;
+  }
+
+  .mq-badge {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .mq-b-num   { font-size: 0.95rem; }
+  .mq-b-label { font-size: 0.72rem; }
+
+  .mq-slow { animation-duration: 28s; }
+  .mq-fast { animation-duration: 20s; }
+}
