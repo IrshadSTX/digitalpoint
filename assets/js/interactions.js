@@ -97,12 +97,27 @@
     });
   }
 
+  /* ── 5. App screenshot auto-slider ────────────────────────── */
+  function initAppScreenSlider() {
+    const slides = document.querySelectorAll('.app-screen-slide');
+    if (slides.length < 2) return;
+
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3000);
+  }
+
   /* ── Init ──────────────────────────────────────────────────── */
   function init() {
     initHamburger();
     initNavShrink();
     initCardTilt();
     initForm();
+    initAppScreenSlider();
   }
 
   if (document.readyState === 'loading') {
