@@ -31,23 +31,9 @@
 .marquee-section::before { top: 0; }
 .marquee-section::after  { bottom: 0; }
 
-/* ── Fade wrapper — masks left & right edges ─────────────── */
+/* ── Fade wrapper — full bleed, no edge fade ─────────────── */
 .mq-fade-wrap {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 12%,
-    #000 88%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 12%,
-    #000 88%,
-    transparent 100%
-  );
 }
 
 /* ── Scrolling track ─────────────────────────────────────── */
@@ -178,6 +164,71 @@
   font-weight: 500;
   line-height: 1.2;
 }
+
+/* ── Poster lightbox ─────────────────────────────────────── */
+.mq-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.mq-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mq-lightbox img {
+  max-width: min(90vw, 420px);
+  max-height: 90vh;
+  border-radius: 18px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.80), 0 0 0 1px rgba(0,229,255,0.20);
+  object-fit: contain;
+  display: block;
+}
+.mq-lb-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.20);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.mq-lb-close:hover { background: rgba(255,255,255,0.20); }
+
+.mq-lb-prev, .mq-lb-next {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.20);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.mq-lb-prev { left: 20px; }
+.mq-lb-next { right: 20px; }
+.mq-lb-prev:hover, .mq-lb-next:hover { background: rgba(0,229,255,0.20); }
+
+.mq-poster { cursor: pointer; }
 
 /* ── Mobile tweaks ───────────────────────────────────────── */
 @media (max-width: 768px) {

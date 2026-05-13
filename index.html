@@ -99,7 +99,7 @@
             <li><a href="#app" class="nav-link-item">App</a></li>
             <li><a href="#process" class="nav-link-item">Admission</a></li>
             <li><a href="#why" class="nav-link-item">Why Us</a></li>
-            <li><a href="#gallery" class="nav-link-item">Gallery</a></li>
+            <!-- <li><a href="#gallery" class="nav-link-item">Gallery</a></li> -->
             <li><a href="#testimonials" class="nav-link-item">Reviews</a></li>
             <li><a href="#contact" class="nav-link-item">Contact</a></li>
             <li><a href="#location" class="nav-link-item">Location</a></li>
@@ -716,16 +716,6 @@
                         <li>Free Textbooks — PDF</li>
                         <li>Free Class Notes — PDF</li>
                     </ul>
-                    <div class="app-links">
-                        <a href="https://play.google.com/store/apps/details?id=co.stan.sbgwq" target="_blank"
-                            rel="noopener" class="app-btn">
-                            <span>▶</span> Play Store
-                        </a>
-                        <a href="https://apps.apple.com/in/app/classplus/id1324522260" target="_blank" rel="noopener"
-                            class="app-btn">
-                            <span></span> App Store
-                        </a>
-                    </div>
                 </article>
 
             </div>
@@ -798,13 +788,14 @@
     </section>
 
     <!-- ════════════════════════════════════════════════════════
-       GALLERY — Images & Videos
+       GALLERY — Images & Videos  [COMMENTED OUT — implement later]
        ─────────────────────────────────────────────────────
        HOW TO ADD CONTENT:
        • Images: drop files into assets/images/gallery/
          then add <div class="media-item"> blocks below.
        • Videos: replace the src="..." YouTube embed URLs.
   ═════════════════════════════════════════════════════════ -->
+    <!--
     <section id="gallery">
         <div class="container">
             <div class="center-text">
@@ -814,64 +805,33 @@
                     Point.</p>
             </div>
 
-            <!-- Tab switcher -->
             <div class="gallery-tabs reveal">
                 <button class="gallery-tab active" data-tab="photos">📷 Photos</button>
                 <button class="gallery-tab" data-tab="videos">🎬 Videos</button>
             </div>
 
-            <!-- ── Photos grid ──────────────────────────────────── -->
             <div class="gallery-grid" id="tab-photos">
-                <!--
-          ADD YOUR IMAGES HERE.
-          Copy one <div class="media-item"> block per photo.
-          Place image files in: assets/images/gallery/
-        -->
                 <div class="media-item media-placeholder" data-src="assets/images/gallery/photo1.jpg">
-                    <div class="placeholder-inner">
-                        <span>📷</span>
-                        <p>Add photo here</p>
-                    </div>
+                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
                 </div>
                 <div class="media-item media-placeholder" data-src="assets/images/gallery/photo2.jpg">
-                    <div class="placeholder-inner">
-                        <span>📷</span>
-                        <p>Add photo here</p>
-                    </div>
+                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
                 </div>
                 <div class="media-item media-placeholder" data-src="assets/images/gallery/photo3.jpg">
-                    <div class="placeholder-inner">
-                        <span>📷</span>
-                        <p>Add photo here</p>
-                    </div>
+                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
                 </div>
                 <div class="media-item media-placeholder" data-src="assets/images/gallery/photo4.jpg">
-                    <div class="placeholder-inner">
-                        <span>📷</span>
-                        <p>Add photo here</p>
-                    </div>
+                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
                 </div>
                 <div class="media-item media-placeholder" data-src="assets/images/gallery/photo5.jpg">
-                    <div class="placeholder-inner">
-                        <span>📷</span>
-                        <p>Add photo here</p>
-                    </div>
+                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
                 </div>
                 <div class="media-item media-placeholder" data-src="assets/images/gallery/photo6.jpg">
-                    <div class="placeholder-inner">
-                        <span>📷</span>
-                        <p>Add photo here</p>
-                    </div>
+                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
                 </div>
             </div>
 
-            <!-- ── Videos grid ──────────────────────────────────── -->
             <div class="gallery-grid hidden" id="tab-videos">
-                <!--
-          ADD YOUR VIDEOS HERE.
-          Replace the YouTube embed URLs (src="...") below.
-          For YouTube: use https://www.youtube.com/embed/VIDEO_ID
-        -->
                 <div class="video-card reveal">
                     <div class="video-thumb" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
                         <div class="play-btn" aria-label="Play video">▶</div>
@@ -894,19 +854,18 @@
         </div>
     </section>
 
-    <!-- Lightbox overlay -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
         <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
         <img class="lightbox-img" id="lightbox-img" src="" alt="" />
     </div>
 
-    <!-- Video modal -->
     <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Video player">
         <button class="lightbox-close" id="video-modal-close" aria-label="Close">✕</button>
         <div class="video-modal-inner">
             <iframe id="video-iframe" src="" allowfullscreen title="Video"></iframe>
         </div>
     </div>
+    -->
 
     <!-- ════════════════════════════════════════════════════════
        TESTIMONIALS
@@ -1056,7 +1015,7 @@
                 <ul>
                     <li><a href="#why">Why Digital Point</a></li>
                     <li><a href="#process">Admission Process</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <!-- <li><a href="#gallery">Gallery</a></li> -->
                     <li><a href="#testimonials">Student Reviews</a></li>
                     <li><a href="#apply">Apply Now</a></li>
                 </ul>
@@ -1123,7 +1082,7 @@
     <script src="assets/js/reveal.js" defer></script>
     <script src="assets/js/counters.js" defer></script>
     <script src="assets/js/interactions.js" defer></script>
-    <script src="assets/js/gallery.js" defer></script>
+    <!-- <script src="assets/js/gallery.js" defer></script> -->
     <script src="assets/js/popup.js" defer></script>
     <script src="assets/js/carousel.js" defer></script>
     <script src="assets/js/institute-hero.js" defer></script>

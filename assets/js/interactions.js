@@ -111,6 +111,69 @@
     }, 3000);
   }
 
+  /* ── 6. Marquee poster tap-to-fullscreen lightbox ─────────── */
+  function initMarqueeLightbox() {
+    const posters = document.querySelectorAll('.mq-poster');
+    if (!posters.length) return;
+
+    // Build unique image list from posters that have alt text (original set)
+    const items = [];
+    posters.forEach((p) => {
+      const img = p.querySelector('img');
+      const label = p.querySelector('span');
+      if (img && img.alt) {
+        items.push({ src: img.getAttribute('src'), label: label ? label.textContent.trim() : '' });
+      }
+    });
+
+    // Create lightbox element
+    const lb = document.createElement('div');
+    lb.id = 'mq-lightbox';
+    lb.className = 'mq-lightbox';
+    lb.innerHTML = `
+      <button class="mq-lb-close" id="mq-lb-close" aria-label="Close">✕</button>
+      <button class="mq-lb-prev" id="mq-lb-prev" aria-label="Previous">&#8249;</button>
+      <img id="mq-lb-img" src="" alt="" />
+      <button class="mq-lb-next" id="mq-lb-next" aria-label="Next">&#8250;</button>`;
+    document.body.appendChild(lb);
+
+    const lbImg = document.getElementById('mq-lb-img');
+    let current = 0;
+
+    function openLb(idx) {
+      current = ((idx % items.length) + items.length) % items.length;
+      lbImg.src = items[current].src;
+      lbImg.alt = items[current].label;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Click on any poster (originals + duplicates)
+    posters.forEach((p) => {
+      p.addEventListener('click', () => {
+        const src = p.querySelector('img').getAttribute('src');
+        const idx = items.findIndex((it) => it.src === src);
+        openLb(idx >= 0 ? idx : 0);
+      });
+    });
+
+    document.getElementById('mq-lb-close').addEventListener('click', closeLb);
+    document.getElementById('mq-lb-prev').addEventListener('click', (e) => { e.stopPropagation(); openLb(current - 1); });
+    document.getElementById('mq-lb-next').addEventListener('click', (e) => { e.stopPropagation(); openLb(current + 1); });
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')     closeLb();
+      if (e.key === 'ArrowLeft')  openLb(current - 1);
+      if (e.key === 'ArrowRight') openLb(current + 1);
+    });
+  }
+
   /* ── Init ──────────────────────────────────────────────────── */
   function init() {
     initHamburger();
@@ -118,6 +181,7 @@
     initCardTilt();
     initForm();
     initAppScreenSlider();
+    initMarqueeLightbox();
   }
 
   if (document.readyState === 'loading') {
