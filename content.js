@@ -196,6 +196,26 @@ const CONTENT = {
     ],
   },
 
+  /* ── Faculty ──────────────────────────────────────────── */
+  faculty: {
+    section_label: "Our Faculty",
+    section_title: "Learn From",
+    section_title_span: "Experienced Experts",
+    section_sub: "Our team of qualified educators brings years of hands-on experience in B.Ed, M.Ed, and Kerala PSC exam preparation.",
+    items: [
+      { name: "Faculty Member",   subject: "B.Ed — Mathematics",       img: "assets/images/faculties/1.jpeg" },
+      { name: "Faculty Member",   subject: "B.Ed — Physical Science",  img: "assets/images/faculties/2.jpeg" },
+      { name: "Faculty Member",   subject: "B.Ed — English",           img: "assets/images/faculties/3.jpeg" },
+      { name: "Faculty Member",   subject: "B.Ed — Social Science",    img: "assets/images/faculties/4.jpeg" },
+      { name: "Faculty Member",   subject: "B.Ed — Commerce",          img: "assets/images/faculties/5.jpeg" },
+      { name: "Faculty Member",   subject: "B.Ed — Computer Science",  img: "assets/images/faculties/6.jpeg" },
+      { name: "Faculty Member",   subject: "M.Ed — Education",         img: "assets/images/faculties/7.jpeg" },
+      { name: "Faculty Member",   subject: "B.Ed — Biological Science",img: "assets/images/faculties/8.jpeg" },
+      { name: "Faculty Member",   subject: "Kerala PSC Coaching",      img: "assets/images/faculties/9.jpeg" },
+      { name: "Faculty Member",   subject: "Doubt & Support Sessions", img: "assets/images/faculties/10.jpeg" },
+    ],
+  },
+
   /* ── App download links ───────────────────────────────── */
   app: {
     android: "https://play.google.com/store/apps/details?id=co.stan.sbgwq",

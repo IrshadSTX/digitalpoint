@@ -244,6 +244,71 @@
     });
   }
 
+  /* ── 13. Faculty grid + lightbox ─────────────────────── */
+  function renderFaculty() {
+    const wrap = document.getElementById('faculty-grid');
+    const items = CONTENT.faculty?.items;
+    if (!wrap || !items?.length) return;
+
+    /* Cards — no reveal class (breathing animation owns transform) */
+    wrap.innerHTML = items.map((f, i) => `
+      <div class="faculty-card" style="--bd:${i * 1.2}s"
+           data-src="${f.img}" data-name="${f.name}" data-idx="${i}">
+        <img class="faculty-card-img" src="${f.img}" alt="${f.name}" loading="lazy" />
+        <div class="faculty-card-overlay"></div>
+      </div>`).join('');
+
+    /* ── Build dedicated faculty lightbox ───────────────── */
+    let lb = document.getElementById('faculty-lightbox');
+    if (!lb) {
+      lb = document.createElement('div');
+      lb.id = 'faculty-lightbox';
+      lb.className = 'faculty-lightbox';
+      lb.innerHTML = `
+        <button class="faculty-lightbox-close" id="fac-lb-close" aria-label="Close">✕</button>
+        <button class="fac-lb-prev" id="fac-lb-prev" aria-label="Previous">&#8249;</button>
+        <img id="fac-lb-img" src="" alt="" />
+        <button class="fac-lb-next" id="fac-lb-next" aria-label="Next">&#8250;</button>`;
+      document.body.appendChild(lb);
+    }
+
+    const lbImg  = document.getElementById('fac-lb-img');
+    let current  = 0;
+
+    function openLightbox(idx) {
+      current = idx;
+      lbImg.src = items[current].img;
+      lbImg.alt = items[current].name;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showPrev() { openLightbox((current - 1 + items.length) % items.length); }
+    function showNext() { openLightbox((current + 1) % items.length); }
+
+    /* Card clicks */
+    wrap.querySelectorAll('.faculty-card').forEach((card) => {
+      card.addEventListener('click', () => openLightbox(+card.dataset.idx));
+    });
+
+    /* Lightbox controls */
+    document.getElementById('fac-lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('fac-lb-prev').addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+    document.getElementById('fac-lb-next').addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+
+    /* Keyboard nav */
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')    closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight')showNext();
+    });
+  }
+
   /* ── Run all ──────────────────────────────────────────── */
   function run() {
     injectText();
@@ -258,6 +323,7 @@
     renderCatalogue();
     renderPopupSlider();
     renderCoursesSection();
+    renderFaculty();
     injectSocialLinks();
   }
 

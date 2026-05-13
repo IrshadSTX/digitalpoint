@@ -1,0 +1,264 @@
+/* ============================================================
+   FACULTY SECTION — Breathing card showcase + lightbox
+   ============================================================ */
+
+.faculty-section {
+  position: relative;
+  z-index: 1;
+  padding: 100px var(--space-xl) 110px;
+  overflow: visible;         /* cards must pop outside section bounds */
+}
+
+/* Ambient glow blobs */
+.faculty-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -120px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+.faculty-section::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 60, 220, 0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Section header ──────────────────────────────────────── */
+.faculty-header { margin-bottom: 60px; }
+
+/* ── Grid ────────────────────────────────────────────────── */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  /* overflow visible so elevated cards show above neighbours */
+  overflow: visible;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.faculty-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  /* breathing animation vars — set via inline style */
+  animation: facBreathe 12s ease-in-out infinite;
+  animation-delay: var(--bd, 0s);
+  /* ensure pointer events + z-index changes work */
+  z-index: 1;
+}
+
+/* ── Breathing keyframe ──────────────────────────────────── */
+/*
+ * Each card "breathes" for 10% of the 12 s cycle (≈1.2 s),
+ * then rests for the remaining 90 % while other cards take turns.
+ * z-index jumps to 10 at 1 % so the enlarged card renders on top.
+ */
+@keyframes facBreathe {
+  0%    {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+    border-color: rgba(255,255,255,0.08);
+    z-index: 1;
+  }
+  1%    { z-index: 10; }
+  5%    {
+    transform: scale(1.10) translateY(-12px);
+    box-shadow:
+      0 28px 64px rgba(0,0,0,0.60),
+      0 0  40px rgba(0,229,255,0.28),
+      0 0   0 2px rgba(0,229,255,0.50) inset;
+    border-color: rgba(0,229,255,0.60);
+  }
+  9%    { z-index: 10; }
+  10%   {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+    border-color: rgba(255,255,255,0.08);
+  }
+  10.1% { z-index: 1; }
+  100%  {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+    border-color: rgba(255,255,255,0.08);
+    z-index: 1;
+  }
+}
+
+/* ── Card image ──────────────────────────────────────────── */
+.faculty-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  pointer-events: none;
+}
+
+/* ── Click hint overlay — subtle, vanishes when hovered ──── */
+.faculty-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(4, 10, 28, 0.55) 0%,
+    transparent 45%
+  );
+  transition: opacity 0.3s ease;
+}
+
+/* Zoom icon hint at centre */
+.faculty-card-overlay::after {
+  content: '⤢';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0);
+  transition: color 0.25s ease;
+}
+.faculty-card:hover .faculty-card-overlay::after {
+  color: rgba(255,255,255,0.70);
+}
+
+/* ── Faculty Lightbox ────────────────────────────────────── */
+.faculty-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.faculty-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.faculty-lightbox img {
+  max-width: min(90vw, 600px);
+  max-height: 90vh;
+  border-radius: 20px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.80), 0 0 0 1px rgba(0,229,255,0.20);
+  object-fit: contain;
+  display: block;
+}
+.faculty-lightbox-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.20);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.faculty-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+
+/* Prev / Next inside lightbox */
+.fac-lb-prev, .fac-lb-next {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.20);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.fac-lb-prev { left: 20px;  }
+.fac-lb-next { right: 20px; }
+.fac-lb-prev:hover, .fac-lb-next:hover { background: rgba(0,229,255,0.20); }
+
+/* ── Mobile breathing keyframe — defined outside @media for full compatibility ── */
+@keyframes facBreatheMobile {
+  0%    {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+    border-color: rgba(255,255,255,0.08);
+    z-index: 1;
+  }
+  1%    { z-index: 10; }
+  5%    {
+    transform: scale(1.10) translateY(-10px);
+    box-shadow:
+      0 20px 48px rgba(0,0,0,0.60),
+      0 0   32px rgba(0,229,255,0.30),
+      0 0    0 2px rgba(0,229,255,0.45) inset;
+    border-color: rgba(0,229,255,0.65);
+  }
+  9%    { z-index: 10; }
+  10%   {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+    border-color: rgba(255,255,255,0.08);
+  }
+  10.1% { z-index: 1; }
+  100%  {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+    border-color: rgba(255,255,255,0.08);
+    z-index: 1;
+  }
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .faculty-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+}
+
+@media (max-width: 900px) {
+  .faculty-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .faculty-section { padding: 80px var(--space-xl) 90px; }
+}
+
+@media (max-width: 600px) {
+  /* Keep overflow visible so breathing cards can scale + glow freely */
+  .faculty-section {
+    padding: 60px 16px 70px;
+    overflow: visible;
+  }
+  .faculty-header { margin-bottom: 36px; }
+
+  /* 2-column grid — no overflow clipping, breathing animation fully visible */
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    overflow: visible;
+  }
+
+  .faculty-card {
+    animation: facBreatheMobile 12s ease-in-out infinite;
+    animation-delay: var(--bd, 0s);
+  }
+}
+
+/* Pause breathing when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .faculty-card { animation: none !important; }
+}
