@@ -59,6 +59,11 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden; /* clips fixed nav drawer on iOS Safari */
+}
+
+html.nav-open {
+  overflow-y: hidden; /* locks page scroll while mobile nav is open */
 }
 
 body {

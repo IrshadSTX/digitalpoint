@@ -22,7 +22,7 @@
       backdrop && backdrop.classList.add('open');
       btn.classList.add('open');
       btn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      document.documentElement.classList.add('nav-open');
     }
 
     function closeMenu() {
@@ -30,7 +30,7 @@
       backdrop && backdrop.classList.remove('open');
       btn.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      document.documentElement.classList.remove('nav-open');
     }
 
     btn.addEventListener('click', () => {
@@ -40,9 +40,23 @@
     // Close on backdrop click
     backdrop && backdrop.addEventListener('click', closeMenu);
 
-    // Close when a nav link is tapped
+    // Close when a nav link is tapped; use programmatic scroll for anchors
     menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          closeMenu();
+          const target = document.querySelector(href);
+          if (target) {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 350);
+          }
+        } else {
+          closeMenu();
+        }
+      });
     });
 
     // Close on Escape
