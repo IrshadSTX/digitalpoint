@@ -23,13 +23,13 @@
 
     function closePopup() {
       popup.classList.remove('open');
-      document.body.style.overflow = '';
+      document.documentElement.classList.remove('nav-open');
       sessionStorage.setItem('popup-dismissed', '1');
     }
 
     function openPopup() {
       popup.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      document.documentElement.classList.add('nav-open');
     }
 
     // Course poster mini-slider

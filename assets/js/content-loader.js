@@ -176,7 +176,9 @@
 
     track.innerHTML = courses.map((c, i) => `
       <div class="pcs-slide${i === 0 ? ' active' : ''}">
-        <img src="${c.img}" alt="${c.name}" loading="lazy" />
+        <img src="${c.img}" alt="${c.name}"
+             loading="${i === 0 ? 'eager' : 'lazy'}"
+             ${i === 0 ? 'fetchpriority="high"' : ''} />
         <div class="pcs-slide-name">${c.name}</div>
       </div>`).join('');
 
