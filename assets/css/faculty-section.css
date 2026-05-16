@@ -194,36 +194,10 @@
 .fac-lb-next { right: 20px; }
 .fac-lb-prev:hover, .fac-lb-next:hover { background: rgba(0,229,255,0.20); }
 
-/* ── Mobile breathing keyframe — defined outside @media for full compatibility ── */
-@keyframes facBreatheMobile {
-  0%    {
-    transform: scale(1) translateY(0);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
-    border-color: rgba(255,255,255,0.08);
-    z-index: 1;
-  }
-  1%    { z-index: 10; }
-  5%    {
-    transform: scale(1.10) translateY(-10px);
-    box-shadow:
-      0 20px 48px rgba(0,0,0,0.60),
-      0 0   32px rgba(0,229,255,0.30),
-      0 0    0 2px rgba(0,229,255,0.45) inset;
-    border-color: rgba(0,229,255,0.65);
-  }
-  9%    { z-index: 10; }
-  10%   {
-    transform: scale(1) translateY(0);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
-    border-color: rgba(255,255,255,0.08);
-  }
-  10.1% { z-index: 1; }
-  100%  {
-    transform: scale(1) translateY(0);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.30);
-    border-color: rgba(255,255,255,0.08);
-    z-index: 1;
-  }
+/* ── Shimmer sweep — plays once when a card becomes active on mobile ── */
+@keyframes facShimmer {
+  from { transform: translateX(-160%) skewX(-18deg); }
+  to   { transform: translateX(280%)  skewX(-18deg); }
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -237,14 +211,13 @@
 }
 
 @media (max-width: 600px) {
-  /* Keep overflow visible so breathing cards can scale + glow freely */
   .faculty-section {
     padding: 60px 16px 70px;
     overflow: visible;
   }
   .faculty-header { margin-bottom: 36px; }
 
-  /* 2-column grid — no overflow clipping, breathing animation fully visible */
+  /* 2 × 2 grid — exactly 4 slots visible */
   .faculty-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -252,9 +225,49 @@
     overflow: visible;
   }
 
+  /* Cards beyond first 4 are hidden — JS cycles images through the 4 slots */
+  .faculty-grid .faculty-card:nth-child(n+5) { display: none; }
+
+  /* Shimmer layer — hidden off left edge; card overflow:hidden clips it */
+  .faculty-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent    0%,
+      transparent   30%,
+      rgba(255,255,255,0.18) 50%,
+      rgba(0,229,255,0.10)   60%,
+      transparent   80%
+    );
+    transform: translateX(-160%) skewX(-18deg);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* JS drives breathing — disable CSS keyframe, use transitions */
   .faculty-card {
-    animation: facBreatheMobile 12s ease-in-out infinite;
-    animation-delay: var(--bd, 0s);
+    animation: none;
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
+                box-shadow 0.5s ease,
+                border-color 0.5s ease;
+  }
+
+  /* Active state: float up + cyan halo ring */
+  .faculty-card.fac-breathe-active {
+    transform: translateY(-16px);
+    box-shadow:
+      0 24px 56px rgba(0,0,0,0.65),
+      0 0   60px rgba(0,229,255,0.38),
+      0 0    0 2px rgba(0,229,255,0.60) inset;
+    border-color: rgba(0,229,255,0.85);
+    z-index: 10;
+  }
+
+  /* Trigger shimmer sweep on the active card */
+  .faculty-card.fac-breathe-active::after {
+    animation: facShimmer 0.75s ease forwards;
   }
 }
 

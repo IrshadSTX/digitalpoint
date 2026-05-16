@@ -111,7 +111,73 @@
     }, 3000);
   }
 
-  /* ── 6. Marquee poster tap-to-fullscreen lightbox ─────────── */
+  /* ── 6. Faculty mobile 2×2 breathing carousel ─────────────── */
+  function initFacultyMobileCarousel() {
+    if (!window.matchMedia('(max-width: 600px)').matches) return;
+
+    const grid = document.getElementById('faculty-grid');
+    if (!grid) return;
+
+    const allCards = Array.from(grid.querySelectorAll('.faculty-card'));
+    if (allCards.length < 4) return;
+
+    // Snapshot image data from every card before CSS hides cards 5+
+    const images = allCards.map((c) => ({
+      src:  c.dataset.src,
+      name: c.dataset.name,
+      idx:  c.dataset.idx,
+    }));
+
+    const SLOTS      = 4;
+    const slots      = allCards.slice(0, SLOTS);
+    const BREATHE_ON = 1100; // ms class stays on: 0.5s float-up + 0.75s shimmer sweep + hold
+    const GAP        = 300;  // ms gap between breaths
+
+    let nextImg    = SLOTS;  // index of next image not yet shown
+    let slotPtr    = 0;
+    let cyclesDone = 0;
+
+    function swapImage(card, imgIdx) {
+      const data = images[imgIdx % images.length];
+      const img  = card.querySelector('.faculty-card-img');
+      img.style.transition = 'opacity 0.25s';
+      img.style.opacity    = '0';
+      setTimeout(() => {
+        img.src            = data.src;
+        img.alt            = data.name;
+        card.dataset.src   = data.src;
+        card.dataset.name  = data.name;
+        card.dataset.idx   = data.idx;
+        img.style.opacity  = '1';
+      }, 250);
+    }
+
+    function tick() {
+      const card = slots[slotPtr];
+      card.classList.add('fac-breathe-active');
+
+      setTimeout(() => {
+        card.classList.remove('fac-breathe-active');
+
+        // Completed a full round of all 4 slots?
+        if (slotPtr === SLOTS - 1) cyclesDone++;
+
+        slotPtr = (slotPtr + 1) % SLOTS;
+
+        if (cyclesDone > 0) {
+          // Swap next slot's image before it breathes, then wait for crossfade
+          swapImage(slots[slotPtr], nextImg++);
+          setTimeout(tick, GAP + 300);
+        } else {
+          setTimeout(tick, GAP);
+        }
+      }, BREATHE_ON);
+    }
+
+    setTimeout(tick, 800);
+  }
+
+  /* ── 7. Marquee poster tap-to-fullscreen lightbox ─────────── */
   function initMarqueeLightbox() {
     const posters = document.querySelectorAll('.mq-poster');
     if (!posters.length) return;
@@ -181,6 +247,7 @@
     initCardTilt();
     initForm();
     initAppScreenSlider();
+    initFacultyMobileCarousel();
     initMarqueeLightbox();
   }
 
