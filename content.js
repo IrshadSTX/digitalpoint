@@ -115,6 +115,21 @@ const CONTENT = {
         full: "Sri Venkateswara University, Tirupathi",
         url: "https://svuniversity.edu.in/",
       },
+      {
+        name: "Osmania University",
+        full: "Osmania University, Hyderabad",
+        url: "https://www.osmania.ac.in/",
+      },
+      {
+        name: "Pondicherry University",
+        full: "Pondicherry University",
+        url: "https://www.pondiuni.edu.in/",
+      },
+      {
+        name: "Bharathiar University",
+        full: "Bharathiar University, Coimbatore",
+        url: "https://b-u.ac.in/",
+      },
     ],
 
     cards: [
@@ -203,16 +218,18 @@ const CONTENT = {
     section_title_span: "Experienced Experts",
     section_sub: "Our team of qualified educators brings years of hands-on experience in B.Ed, M.Ed, and Kerala PSC exam preparation.",
     items: [
-      { name: "Faculty Member",   subject: "B.Ed — Mathematics",       img: "assets/images/faculties/1.jpeg" },
-      { name: "Faculty Member",   subject: "B.Ed — Physical Science",  img: "assets/images/faculties/2.jpeg" },
-      { name: "Faculty Member",   subject: "B.Ed — English",           img: "assets/images/faculties/3.jpeg" },
-      { name: "Faculty Member",   subject: "B.Ed — Social Science",    img: "assets/images/faculties/4.jpeg" },
-      { name: "Faculty Member",   subject: "B.Ed — Commerce",          img: "assets/images/faculties/5.jpeg" },
-      { name: "Faculty Member",   subject: "B.Ed — Computer Science",  img: "assets/images/faculties/6.jpeg" },
-      { name: "Faculty Member",   subject: "M.Ed — Education",         img: "assets/images/faculties/7.jpeg" },
-      { name: "Faculty Member",   subject: "B.Ed — Biological Science",img: "assets/images/faculties/8.jpeg" },
-      { name: "Faculty Member",   subject: "Kerala PSC Coaching",      img: "assets/images/faculties/9.jpeg" },
-      { name: "Faculty Member",   subject: "Doubt & Support Sessions", img: "assets/images/faculties/10.jpeg" },
+      { name: "Faculty Member", subject: "B.Ed — Mathematics", img: "assets/images/faculties/1.jpeg" },
+      { name: "Faculty Member", subject: "B.Ed — Physical Science", img: "assets/images/faculties/2.jpeg" },
+      { name: "Faculty Member", subject: "B.Ed — English", img: "assets/images/faculties/3.jpeg" },
+      { name: "Faculty Member", subject: "B.Ed — Social Science", img: "assets/images/faculties/4.jpeg" },
+      { name: "Faculty Member", subject: "B.Ed — Commerce", img: "assets/images/faculties/5.jpeg" },
+      { name: "Faculty Member", subject: "B.Ed — Computer Science", img: "assets/images/faculties/6.jpeg" },
+      { name: "Faculty Member", subject: "M.Ed — Education", img: "assets/images/faculties/7.jpeg" },
+      { name: "Faculty Member", subject: "B.Ed — Biological Science", img: "assets/images/faculties/8.jpeg" },
+      { name: "Faculty Member", subject: "Kerala PSC Coaching", img: "assets/images/faculties/9.jpeg" },
+      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/10.jpeg" }, 
+      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/11.jpeg" },
+
     ],
   },
 
@@ -284,7 +301,7 @@ const CONTENT = {
   achievements: [
     { icon: "🎓", num: "2,400+", title: "Students Enrolled", desc: "Successful B.Ed & M.Ed admissions handled since our founding." },
     { icon: "✅", num: "98%", title: "Admission Success Rate", desc: "Industry-leading success rate with end-to-end documentation support." },
-    { icon: "🏛️", num: "2", title: "Partner Universities", desc: "TNTEU & SV University — both Kerala PSC and UGC approved." },
+    { icon: "🏛️", num: "5", title: "Partner Universities", desc: "TNTEU, SV University, Osmania, Pondicherry & Bharathiar — all Kerala PSC approved." },
     { icon: "📜", num: "3", title: "University Equivalency", desc: "Equivalency from Kerala, Kannur & Calicut Universities." },
     { icon: "📱", num: "1", title: "Official Learning App", desc: "DiGi Learning App with live classes, notes & question papers — free." },
     { icon: "🧑‍🏫", num: "7", title: "B.Ed Specialisations", desc: "English, Maths, Science, Commerce, Computer Science, Social Science & more." },
