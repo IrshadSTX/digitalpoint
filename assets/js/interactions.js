@@ -123,7 +123,103 @@
     });
   }
 
-  /* ── 5. App screenshot auto-slider ────────────────────────── */
+  /* ── 5. Program searchable dropdown ───────────────────────── */
+  function initProgramSearch() {
+    const wrap        = document.getElementById('program-select-wrap');
+    const searchInput = document.getElementById('program-search');
+    const dropdown    = document.getElementById('program-dropdown');
+    const hidden      = document.getElementById('program');
+    if (!wrap || !searchInput || !dropdown || !hidden) return;
+
+    const PROGRAMS = [
+      { group: 'B.Ed — Teaching Programs', items: [
+        'B.Ed — English', 'B.Ed — Mathematics', 'B.Ed — Physical Science',
+        'B.Ed — Biological Science', 'B.Ed — Commerce',
+        'B.Ed — Computer Science', 'B.Ed — Social Science',
+      ]},
+      { group: 'M.Ed', items: ['M.Ed'] },
+      { group: 'UG — Undergraduate', items: [
+        'B.A. Tamil Literature', 'B.A. English Literature', 'B.A. English with CA',
+        'B.Sc. Mathematics', 'B.Sc. Mathematics with CA', 'B.Sc. Computer Science',
+        'B.Sc. Information Technology', 'B.Sc. Computer Technology',
+        'B.Sc. Software System', 'B.Sc. Physics', 'B.Sc. Chemistry',
+        'B.Sc. Microbiology', 'B.Sc. Biotechnology', 'B.Sc. Biochemistry',
+        'B.Sc. Costume Design & Fashion', 'B.Sc. Food Science & Nutrition',
+        'B.Sc. Psychology', 'B.Sc. Visual Communication', 'B.Sc. Interior Design',
+        'B.Sc. Catering Science & Hotel Management',
+        'B.Sc. Hospitality & Airline Hotel Management',
+        'B.Com', 'B.Com with CA', 'B.Com Professional Accounting',
+        'BBA', 'BBA with CA', 'BCA', 'LLB',
+      ]},
+      { group: 'PG — Postgraduate', items: [
+        'M.A. Tamil Literature', 'M.A. English', 'M.A. English with CA',
+        'M.Sc. Mathematics', 'M.Sc. Computer Science', 'M.Sc. Information Technology',
+        'M.Sc. Computer Technology', 'M.Sc. Software System', 'M.Sc. Physics',
+        'M.Sc. Chemistry', 'M.Sc. Microbiology', 'M.Sc. Biotechnology',
+        'M.Sc. Biochemistry', 'M.Sc. Costume Design & Fashion',
+        'M.Sc. Foods Science & Nutrition', 'M.Sc. Textile & Clothing',
+        'M.Sc. Computer Communication', 'M.Com', 'M.Com with CA',
+        'M.Com Corporate Secretaryship', 'MBA', 'MCA', 'MSW',
+        'M.Phil – Computer Science & Management', 'Ph.D Management', 'Ph.D Education',
+      ]},
+    ];
+
+    function render(filter) {
+      const q = (filter || '').toLowerCase().trim();
+      let html = '';
+      PROGRAMS.forEach(({ group, items }) => {
+        const list = q ? items.filter((i) => i.toLowerCase().includes(q)) : items;
+        if (!list.length) return;
+        html += `<div class="pd-group">${group}</div>`;
+        list.forEach((item) => {
+          html += `<div class="pd-item${item === hidden.value ? ' selected' : ''}" data-value="${item}">${item}</div>`;
+        });
+      });
+      dropdown.innerHTML = html || '<div class="pd-empty">No programs found</div>';
+    }
+
+    function open() {
+      searchInput.readOnly = false;
+      searchInput.select();
+      render('');
+      dropdown.hidden = false;
+      wrap.classList.add('open');
+    }
+
+    function close() {
+      dropdown.hidden = true;
+      wrap.classList.remove('open');
+      searchInput.readOnly = true;
+      searchInput.value = hidden.value;
+    }
+
+    function select(value) {
+      hidden.value = value;
+      close();
+    }
+
+    searchInput.addEventListener('click', open);
+    searchInput.addEventListener('input', () => render(searchInput.value));
+
+    dropdown.addEventListener('mousedown', (e) => {
+      const item = e.target.closest('.pd-item');
+      if (item) select(item.dataset.value);
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Enter') {
+        const first = dropdown.querySelector('.pd-item');
+        if (first) select(first.dataset.value);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) close();
+    });
+  }
+
+  /* ── 6. App screenshot auto-slider ────────────────────────── */
   function initAppScreenSlider() {
     const slides = document.querySelectorAll('.app-screen-slide');
     if (slides.length < 2) return;
@@ -271,6 +367,7 @@
     initHamburger();
     initNavShrink();
     initCardTilt();
+    initProgramSearch();
     initForm();
     initAppScreenSlider();
     initFacultyMobileCarousel();

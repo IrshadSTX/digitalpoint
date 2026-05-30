@@ -366,18 +366,16 @@
                                 <label for="email">Email</label>
                                 <input id="email" type="email" placeholder="you@email.com" />
                             </div>
-                            <div class="form-field">
-                                <label for="program">Program</label>
-                                <select id="program">
-                                    <option>B.Ed — English</option>
-                                    <option>B.Ed — Mathematics</option>
-                                    <option>B.Ed — Physical Science</option>
-                                    <option>B.Ed — Biological Science</option>
-                                    <option>B.Ed — Commerce</option>
-                                    <option>B.Ed — Computer Science</option>
-                                    <option>B.Ed — Social Science</option>
-                                    <option>M.Ed</option>
-                                </select>
+                            <div class="form-field program-field">
+                                <label for="program-search">Program</label>
+                                <div class="program-select-wrap" id="program-select-wrap">
+                                    <div class="program-input-row">
+                                        <input type="text" id="program-search" placeholder="Search or select program…" autocomplete="off" readonly />
+                                        <span class="program-arrow" aria-hidden="true">▾</span>
+                                    </div>
+                                    <div class="program-dropdown" id="program-dropdown" hidden></div>
+                                </div>
+                                <input type="hidden" id="program" value="B.Ed — English" />
                             </div>
                         </div>
                         <button type="submit" class="btn-primary">
