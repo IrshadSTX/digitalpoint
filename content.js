@@ -200,6 +200,7 @@ const CONTENT = {
     section_title: "More Courses We Offer",
     section_sub: "Beyond B.Ed & M.Ed — explore our full range of programmes for 2026–27.",
     items: [
+      { name: "B.Ed", img: "assets/images/courses/9.jpeg" },
       { name: "Ph.D Education", img: "assets/images/courses/8.jpeg" },
       { name: "LLB", img: "assets/images/courses/7.jpeg" },
       { name: "MSc Chemistry", img: "assets/images/courses/6.jpeg" },
@@ -227,7 +228,7 @@ const CONTENT = {
       { name: "Faculty Member", subject: "M.Ed — Education", img: "assets/images/faculties/7.jpeg" },
       { name: "Faculty Member", subject: "B.Ed — Biological Science", img: "assets/images/faculties/8.jpeg" },
       { name: "Faculty Member", subject: "Kerala PSC Coaching", img: "assets/images/faculties/9.jpeg" },
-      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/10.jpeg" }, 
+      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/10.jpeg" },
       { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/11.jpeg" },
 
     ],
