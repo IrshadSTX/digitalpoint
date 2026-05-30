@@ -97,13 +97,25 @@
     });
   }
 
-  /* ── 4. Enquiry form submission ────────────────────────────── */
+  /* ── 4. Enquiry form submission → WhatsApp ─────────────────── */
   function initForm() {
     const form = document.querySelector('.card-form');
     if (!form) return;
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      const name    = (form.querySelector('#name')?.value    || '').trim();
+      const phone   = (form.querySelector('#phone')?.value   || '').trim();
+      const email   = (form.querySelector('#email')?.value   || '').trim();
+      const program = (form.querySelector('#program')?.value || '').trim();
+
+      if (!name || !phone) return;
+
+      const msg = `Hello Digital Point! I'd like a free counselling session.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email || 'Not provided'}\n*Program:* ${program}`;
+
+      window.open(`https://wa.me/919447247595?text=${encodeURIComponent(msg)}`, '_blank');
+
       const btn = form.querySelector('button[type="submit"]');
       btn.textContent = "✓ We'll Call You Within 24 Hours!";
       btn.style.background = 'linear-gradient(90deg, #0a7c2e, #00e5a0)';
