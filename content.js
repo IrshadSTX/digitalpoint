@@ -63,9 +63,9 @@ const CONTENT = {
   /* ── Hero section ─────────────────────────────────────── */
   hero: {
     badge: "Admissions Open 2026–28",
-    title_line1: "Your Path to a",
-    title_line2: "Kerala PSC",
-    title_line3: "Teaching Career",
+    title_line1: "B.Ed & M.Ed Admissions in",
+    title_line2: "Malappuram",
+    title_line3: "Kerala PSC Approved",
     subtitle: "Kerala's trusted B.Ed & M.Ed admission consultancy. We place you in Kerala PSC-approved, UGC/NCTE-recognised universities — with live classes, study support, and guaranteed guidance from Day 1.",
     cta_primary: "Apply for 2026–28 →",
     cta_secondary: "View Programs ↓",
