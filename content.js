@@ -230,7 +230,8 @@ const CONTENT = {
       { name: "Faculty Member", subject: "Kerala PSC Coaching", img: "assets/images/faculties/9.jpeg" },
       { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/10.jpeg" },
       { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/11.jpeg" },
-
+      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/12.jpeg" },
+      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/13.jpeg" },
     ],
   },
 
