@@ -311,6 +311,56 @@
     });
   }
 
+  /* ── 14. Institute hero slides ───────────────────────── */
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  function renderInstituteSlides() {
+    const wrap = document.getElementById('ih-slides');
+    const slides = (CONTENT.institute?.slides || []).filter((s) => s.img);
+    if (!wrap || !slides.length) return;
+    wrap.innerHTML = slides.map((s, i) => `
+      <div class="ih-slide${i === 0 ? ' ih-active' : ''}" role="img" aria-label="${esc(s.alt)}"
+           style="background-image:url('${esc(s.img)}')"></div>`).join('');
+  }
+
+  /* ── 15. Marquee course posters (original + loop copy) ── */
+  function renderMarquee() {
+    const wrap = document.getElementById('mq-posters');
+    const items = (CONTENT.courses?.items || []).filter((c) => c.img);
+    if (!wrap || !items.length) return;
+    const poster = (c, copy) => copy
+      ? `<div class="mq-poster" aria-hidden="true"><img src="${esc(c.img)}" alt="" loading="lazy" /><span>${esc(c.name)}</span></div>`
+      : `<div class="mq-poster"><img src="${esc(c.img)}" alt="${esc(c.name)}" loading="lazy" /><span>${esc(c.name)}</span></div>`;
+    wrap.innerHTML = items.map((c) => poster(c, false)).join('') +
+                     items.map((c) => poster(c, true)).join('');
+  }
+
+  /* ── 16. App screenshots ─────────────────────────────── */
+  function renderAppScreens() {
+    const wrap = document.getElementById('app-screen-slider');
+    const screens = (CONTENT.app?.screens || []).filter((s) => s.img);
+    if (!wrap || !screens.length) return;
+    wrap.innerHTML = screens.map((s, i) => `
+      <div class="app-screen-slide${i === 0 ? ' active' : ''}">
+        <img src="${esc(s.img)}" alt="${esc(s.alt)}" loading="lazy" />
+      </div>`).join('');
+  }
+
+  /* ── 17. Admin link label (Sign In ↔ Manage) ─────────── */
+  function updateAdminLink() {
+    let signedIn = false;
+    try {
+      signedIn = !!(sessionStorage.getItem('dp_admin_token') || localStorage.getItem('dp_admin_token'));
+    } catch (_) { /* storage blocked */ }
+    if (!signedIn) return;
+    document.querySelectorAll('[data-admin-link]').forEach((el) => {
+      el.textContent = el.classList.contains('nav-admin-link') ? '⚙️ Manage Site' : 'Manage';
+    });
+  }
+
   /* ── Run all ──────────────────────────────────────────── */
   function run() {
     injectText();
@@ -327,6 +377,10 @@
     renderCoursesSection();
     renderFaculty();
     injectSocialLinks();
+    renderInstituteSlides();
+    renderMarquee();
+    renderAppScreens();
+    updateAdminLink();
   }
 
   if (document.readyState === 'loading') {

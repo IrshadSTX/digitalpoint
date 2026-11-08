@@ -55,6 +55,17 @@ const CONTENT = {
     later_btn: "Maybe Later",
   },
 
+  /* ── Institute photo slider (top of page) ─────────────── */
+  institute: {
+    label: "Digital Point  ·  Areekode, Malappuram",
+    slides: [
+      { img: "assets/images/institute/1.jpeg", alt: "Digital Point institute" },
+      { img: "assets/images/institute/2.jpeg", alt: "Digital Point institute" },
+      { img: "assets/images/institute/3.jpeg", alt: "Digital Point institute" },
+      { img: "assets/images/institute/4.jpeg", alt: "Digital Point institute" },
+    ],
+  },
+
   /* ── Navbar ───────────────────────────────────────────── */
   nav: {
     cta_btn: "Apply Now →",
@@ -242,6 +253,11 @@ const CONTENT = {
   app: {
     android: "https://play.google.com/store/apps/details?id=co.stan.sbgwq",
     ios: "https://apps.apple.com/in/app/classplus/id1324522260",
+    screens: [
+      { img: "assets/images/mobile/mobile_sc_1.jpeg", alt: "DiGi App screen 1" },
+      { img: "assets/images/mobile/mobile_sc_2.jpeg", alt: "DiGi App screen 2" },
+      { img: "assets/images/mobile/mobile_sc_3.jpeg", alt: "DiGi App screen 3" },
+    ],
   },
 
   /* ── Why choose us ────────────────────────────────────── */
