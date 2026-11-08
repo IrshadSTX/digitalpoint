@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Site Management — Digital Point</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" />
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+
+<body class="admin-body">
+
+    <!-- ── Top bar ─────────────────────────────────────────── -->
+    <header class="adm-topbar">
+        <a href="index.html" class="adm-brand">
+            <img src="assets/images/logo.png" alt="" class="adm-logo" />
+            <span>Digital <span class="accent">Point</span></span>
+            <span class="adm-brand-tag">Admin</span>
+        </a>
+        <div class="adm-topbar-right">
+            <a href="index.html" class="adm-btn adm-btn-ghost" target="_blank" rel="noopener">View site ↗</a>
+            <div class="adm-user" id="adm-user" hidden>
+                <button class="adm-btn adm-btn-ghost" id="adm-signout" type="button">Sign out</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Sign-in screen ──────────────────────────────────── -->
+    <main class="adm-login" id="adm-login" hidden>
+        <form class="adm-login-card" id="adm-login-form" autocomplete="off">
+            <div class="adm-login-icon" aria-hidden="true">🔒</div>
+            <h1>Admin Sign In</h1>
+            <p class="adm-muted">Sign in to manage the content and images on the Digital Point website.</p>
+
+            <label class="adm-field">
+                <span class="adm-label">GitHub access token</span>
+                <input type="password" id="adm-token" placeholder="github_pat_…" required spellcheck="false" />
+            </label>
+
+            <label class="adm-check">
+                <input type="checkbox" id="adm-remember" />
+                <span>Keep me signed in on this device</span>
+            </label>
+
+            <p class="adm-error" id="adm-login-error" role="alert" hidden></p>
+
+            <button type="submit" class="adm-btn adm-btn-primary adm-btn-block" id="adm-login-btn">Sign In</button>
+
+            <details class="adm-help">
+                <summary>How do I get an access token?</summary>
+                <ol>
+                    <li>Sign in to GitHub with the account that owns the website, then open
+                        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank"
+                            rel="noopener">New fine-grained token</a>.</li>
+                    <li>Give it a name (for example <em>Website admin</em>) and choose an expiry date.</li>
+                    <li>Under <strong>Repository access</strong>, choose <em>Only select repositories</em> and pick
+                        <strong>digitalpoint</strong>.</li>
+                    <li>Under <strong>Permissions → Repository permissions</strong>, set
+                        <strong>Contents</strong> to <em>Read and write</em>.</li>
+                    <li>Click <strong>Generate token</strong>, copy it and paste it above.</li>
+                </ol>
+                <p class="adm-muted">Keep the token private, because anyone who has it can edit the website.
+                    Only tick "Keep me signed in" on your own device.</p>
+            </details>
+        </form>
+    </main>
+
+    <!-- ── Loading state ───────────────────────────────────── -->
+    <div class="adm-loading" id="adm-loading">
+        <div class="adm-spinner" aria-hidden="true"></div>
+        <p id="adm-loading-text">Loading…</p>
+    </div>
+
+    <!-- ── Management dashboard ────────────────────────────── -->
+    <div class="adm-app" id="adm-app" hidden>
+        <nav class="adm-sidebar" id="adm-sidebar" aria-label="Website sections"></nav>
+
+        <main class="adm-main">
+            <div class="adm-main-inner" id="adm-section"></div>
+        </main>
+    </div>
+
+    <!-- ── Save bar ────────────────────────────────────────── -->
+    <div class="adm-savebar" id="adm-savebar" hidden>
+        <span class="adm-savebar-text"><span class="adm-dot"></span><span id="adm-savebar-text">You have unsaved changes</span></span>
+        <div class="adm-savebar-actions">
+            <button type="button" class="adm-btn adm-btn-ghost" id="adm-discard">Discard</button>
+            <button type="button" class="adm-btn adm-btn-primary" id="adm-save">Publish changes</button>
+        </div>
+    </div>
+
+    <!-- ── Publish dialog ──────────────────────────────────── -->
+    <dialog class="adm-dialog" id="adm-publish-dialog">
+        <form method="dialog" id="adm-publish-form">
+            <h2>Publish changes</h2>
+            <p class="adm-muted">Your changes will go live on the website in about 1–2 minutes.</p>
+            <ul class="adm-changes" id="adm-changes"></ul>
+            <label class="adm-field">
+                <span class="adm-label">Short note about this change (optional)</span>
+                <input type="text" id="adm-commit-msg" placeholder="e.g. Updated faculty photos" maxlength="120" />
+            </label>
+            <div class="adm-dialog-actions">
+                <button type="button" class="adm-btn adm-btn-ghost" id="adm-publish-cancel">Cancel</button>
+                <button type="submit" class="adm-btn adm-btn-primary" id="adm-publish-confirm" value="publish">Publish</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- ── Replace token (keeps unsaved edits) ─────────────── -->
+    <dialog class="adm-dialog" id="adm-token-dialog">
+        <form method="dialog" id="adm-token-form" autocomplete="off">
+            <h2>Token can't save changes</h2>
+            <p class="adm-muted" id="adm-token-reason"></p>
+            <ol class="adm-token-steps">
+                <li>Open <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">your fine-grained tokens</a> and edit the token, or create a new one.</li>
+                <li><strong>Repository access:</strong> Only select repositories → <strong>digitalpoint</strong></li>
+                <li><strong>Repository permissions → Contents:</strong> <em>Read and write</em> (not Read-only)</li>
+                <li>Save. If GitHub gives you a new token, paste it below.</li>
+            </ol>
+            <p class="adm-muted">Your unsaved changes are kept.</p>
+            <label class="adm-field">
+                <span class="adm-label">Access token</span>
+                <input type="password" id="adm-token-new" placeholder="github_pat_… (leave empty if you only edited the permissions)" spellcheck="false" />
+            </label>
+            <label class="adm-check">
+                <input type="checkbox" id="adm-token-remember" />
+                <span>Keep me signed in on this device</span>
+            </label>
+            <p class="adm-error" id="adm-token-error" role="alert" hidden></p>
+            <div class="adm-dialog-actions">
+                <button type="button" class="adm-btn adm-btn-ghost" id="adm-token-cancel">Cancel</button>
+                <button type="submit" class="adm-btn adm-btn-primary" id="adm-token-retry">Try publishing again</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- ── Toasts ──────────────────────────────────────────── -->
+    <div class="adm-toasts" id="adm-toasts" aria-live="polite"></div>
+
+    <script src="assets/js/admin.js" defer></script>
+</body>
+
+</html>
