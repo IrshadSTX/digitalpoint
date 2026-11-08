@@ -422,6 +422,11 @@ const CONTENT = {
         name: "Faculty Member",
         subject: "Doubt & Support Sessions",
         img: "assets/images/faculties/13.jpeg"
+      },
+      {
+        name: "",
+        subject: "",
+        img: "assets/images/faculties/1001922045-mw7uphsf.jpg"
       }
     ]
   },
