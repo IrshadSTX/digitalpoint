@@ -2,25 +2,22 @@
  * ============================================================
  *  DIGITAL POINT — SITE CONTENT
  *  ────────────────────────────────────────────────────────
- *  Edit ONLY this file to update text, numbers, links, and
- *  image paths across the entire website.
+ *  All text, numbers, links and image paths for the website.
  *
- *  HOW TO EDIT:
- *    1. Open this file in any text editor (Notepad, VS Code…)
- *    2. Change the value inside the quotes " "
- *    3. Save the file
- *    4. Push to GitHub — the live site updates in ~2 minutes
+ *  EASIEST WAY TO EDIT: open /admin.html on the website,
+ *  sign in, make your changes and click "Publish changes".
  *
- *  RULES:
+ *  EDITING BY HAND:
  *    • Do NOT remove or rename the property keys (left side)
  *    • Only change the values (right side, inside quotes)
  *    • Keep all commas and quote marks intact
+ *    • Push to GitHub — the live site updates in ~2 minutes
  * ============================================================
  */
 
 const CONTENT = {
 
-  /* ── Company info ─────────────────────────────────────── */
+  /* ── Company Info ────────────────────────────────────── */
   company: {
     name: "Digital Point",
     tagline: "Virtual Power",
@@ -29,18 +26,18 @@ const CONTENT = {
     phone2: "9446250595",
     phone3: "0483 296 5000",
     email: "info@digitalpoint.in",
-    copyright: "© 2026 Digital Point, Areekode, Malappuram. All rights reserved.",
+    copyright: "© 2026 Digital Point, Areekode, Malappuram. All rights reserved."
   },
 
-  /* ── Social media links ───────────────────────────────── */
+  /* ── Social Links ────────────────────────────────────── */
   social: {
     instagram: "https://www.instagram.com/digital__point_",
-    facebook: "#",   // paste your Facebook page URL here
-    x: "#",   // paste your X (Twitter) URL here
-    telegram: "#",   // paste your Telegram link here
+    facebook: "#",
+    x: "#",
+    telegram: "#"
   },
 
-  /* ── Popup modal ──────────────────────────────────────── */
+  /* ── Admission Popup ─────────────────────────────────── */
   popup: {
     badge: "🎓 Admissions Open",
     title_line1: "2026–28 Batch",
@@ -52,15 +49,15 @@ const CONTENT = {
     feat3: "DiGi Learning App Included",
     feat4: "Free Textbooks & Notes",
     cta_btn: "Enroll Now — It's Free ✦",
-    later_btn: "Maybe Later",
+    later_btn: "Maybe Later"
   },
 
-  /* ── Navbar ───────────────────────────────────────────── */
+  /* ── Navbar ──────────────────────────────────────────── */
   nav: {
-    cta_btn: "Apply Now →",
+    cta_btn: "Apply Now →"
   },
 
-  /* ── Hero section ─────────────────────────────────────── */
+  /* ── Hero ────────────────────────────────────────────── */
   hero: {
     badge: "Admissions Open 2026–28",
     title_line1: "B.Ed & M.Ed Admissions in",
@@ -69,8 +66,6 @@ const CONTENT = {
     subtitle: "Kerala's trusted B.Ed & M.Ed admission consultancy. We place you in Kerala PSC-approved, UGC/NCTE-recognised universities — with live classes, study support, and guaranteed guidance from Day 1.",
     cta_primary: "Apply for 2026–28 →",
     cta_secondary: "View Programs ↓",
-
-    /* Stats — update numbers here */
     stat1_num: "2,400+",
     stat1_label: "Students Placed",
     stat2_num: "98%",
@@ -78,243 +73,489 @@ const CONTENT = {
     stat3_num: "7",
     stat3_label: "Specialisations",
     stat4_num: "3",
-    stat4_label: "University Equivalency",
+    stat4_label: "University Equivalency"
   },
 
-  /* ── Enquiry card (inside hero) ───────────────────────── */
+  /* ── Enquiry Card ────────────────────────────────────── */
   card: {
     tag: "✦ Free Admission Enquiry",
     title: "Get Counselling Absolutely Free",
     subtitle: "Fill in your details — our team will call you within 24 hours.",
     cta_btn: "Get Free Counselling ✦",
-    success: "✓ We'll Call You Within 24 Hours!",
+    success: "✓ We'll Call You Within 24 Hours!"
   },
 
-  /* ── Features strip ───────────────────────────────────── */
+  /* ── Features Strip ──────────────────────────────────── */
   features: [
-    { icon: "✅", title: "Kerala PSC Approved", desc: "Recognised for all Kerala government teaching posts" },
-    { icon: "🏛️", title: "University Equivalency", desc: "Kerala, Kannur & Calicut University approved" },
-    { icon: "📱", title: "DiGi Learning App", desc: "Live & recorded classes on our official app" },
-    { icon: "📞", title: "Direct Support", desc: "Call us: 9447247595 / 9446250595" },
+    {
+      icon: "✅",
+      title: "Kerala PSC Approved",
+      desc: "Recognised for all Kerala government teaching posts"
+    },
+    {
+      icon: "🏛️",
+      title: "University Equivalency",
+      desc: "Kerala, Kannur & Calicut University approved"
+    },
+    {
+      icon: "📱",
+      title: "DiGi Learning App",
+      desc: "Live & recorded classes on our official app"
+    },
+    {
+      icon: "📞",
+      title: "Direct Support",
+      desc: "Call us: 9447247595 / 9446250595"
+    }
   ],
 
-  /* ── Programs section ─────────────────────────────────── */
+  /* ── Programs ────────────────────────────────────────── */
   programs: {
     section_label: "Our Programs",
     section_title: "B.Ed & M.Ed from Top Universities",
     section_sub: "Admissions open for 2026–28 batch from Tamil Nadu Teacher Education University (TNTEU) and Sri Venkateswara University, Tirupathi — both Kerala PSC approved with limited seats.",
-
     universities: [
       {
         name: "TNTEU",
         full: "Tamil Nadu Teacher Education University",
-        url: "https://www.tnteu.ac.in/",
+        url: "https://www.tnteu.ac.in/"
       },
       {
         name: "SV University",
         full: "Sri Venkateswara University, Tirupathi",
-        url: "https://svuniversity.edu.in/",
+        url: "https://svuniversity.edu.in/"
       },
       {
         name: "Osmania University",
         full: "Osmania University, Hyderabad",
-        url: "https://www.osmania.ac.in/",
+        url: "https://www.osmania.ac.in/"
       },
       {
         name: "Pondicherry University",
         full: "Pondicherry University",
-        url: "https://www.pondiuni.edu.in/",
+        url: "https://www.pondiuni.edu.in/"
       },
       {
         name: "Bharathiar University",
         full: "Bharathiar University, Coimbatore",
-        url: "https://b-u.ac.in/",
-      },
+        url: "https://b-u.ac.in/"
+      }
     ],
-
     cards: [
       {
         badge: "B.Ed 2026–28 · Limited Seats",
         icon: "🎓",
         name: "Bachelor of Education",
         desc: "Kerala PSC approved B.Ed with equivalency from Kerala, Kannur, and Calicut University. Includes live & recorded classes via DiGi Learning App.",
-        details: ["English", "Mathematics", "Physical Science", "Biological Science", "Commerce", "Computer Science", "Social Science"],
+        details: [
+          "English",
+          "Mathematics",
+          "Physical Science",
+          "Biological Science",
+          "Commerce",
+          "Computer Science",
+          "Social Science"
+        ],
         cta: "Apply Now →",
-        featured: true,
+        featured: true
       },
       {
         badge: "",
         icon: "📖",
         name: "Master of Education",
         desc: "Advance your career with an M.Ed degree from UGC/NCTE/UPSC approved universities. Ideal for experienced teachers seeking promotion eligibility.",
-        details: ["Kerala PSC Approved", "UGC / NCTE / UPSC Recognised", "Equivalency: Kerala, Kannur, Calicut University", "Live + Recorded Classes", "Previous Year Question Papers", "Free Textbooks (PDF)"],
+        details: [
+          "Kerala PSC Approved",
+          "UGC / NCTE / UPSC Recognised",
+          "Equivalency: Kerala, Kannur, Calicut University",
+          "Live + Recorded Classes",
+          "Previous Year Question Papers",
+          "Free Textbooks (PDF)"
+        ],
         cta: "Apply Now →",
-        featured: false,
+        featured: false
       },
       {
         badge: "",
         icon: "📱",
         name: "DiGi Learning App",
         desc: "Digital Point's official mobile app — your complete B.Ed / M.Ed syllabus in one place, available free on Play Store and App Store.",
-        details: ["Live Classes", "Recorded Video Lectures", "Previous Year Question Papers", "Doubt Clearing Sessions", "Free Textbooks — PDF", "Free Class Notes — PDF"],
+        details: [
+          "Live Classes",
+          "Recorded Video Lectures",
+          "Previous Year Question Papers",
+          "Doubt Clearing Sessions",
+          "Free Textbooks — PDF",
+          "Free Class Notes — PDF"
+        ],
         cta: "",
-        featured: false,
-      },
-    ],
+        featured: false
+      }
+    ]
   },
 
-  /* ── Full Course Catalogue (UG / PG lists) ───────────── */
+  /* ── Course Catalogue ────────────────────────────────── */
   catalogue: {
     ug: [
-      "B.A. Tamil Literature", "B.A. English Literature",
-      "B.Sc. Mathematics", "B.Sc. Mathematics with CA",
-      "B.Sc. Computer Science", "B.Sc. Information Technology",
-      "B.Sc. Computer Technology", "B.Sc. Software System",
-      "B.Sc. Physics", "B.Sc. Chemistry",
-      "B.Sc. Microbiology", "B.Sc. Biotechnology", "B.Sc. Biochemistry",
-      "B.Sc. Costume Design & Fashion", "B.Sc. Food Science & Nutrition",
-      "B.Sc. Psychology", "B.Sc. Visual Communication",
-      "B.Sc. Interior Design", "B.Sc. Catering Science & Hotel Management",
+      "B.A. Tamil Literature",
+      "B.A. English Literature",
+      "B.Sc. Mathematics",
+      "B.Sc. Mathematics with CA",
+      "B.Sc. Computer Science",
+      "B.Sc. Information Technology",
+      "B.Sc. Computer Technology",
+      "B.Sc. Software System",
+      "B.Sc. Physics",
+      "B.Sc. Chemistry",
+      "B.Sc. Microbiology",
+      "B.Sc. Biotechnology",
+      "B.Sc. Biochemistry",
+      "B.Sc. Costume Design & Fashion",
+      "B.Sc. Food Science & Nutrition",
+      "B.Sc. Psychology",
+      "B.Sc. Visual Communication",
+      "B.Sc. Interior Design",
+      "B.Sc. Catering Science & Hotel Management",
       "B.Sc. Hospitality & Airline Hotel Management",
-      "B.Com", "B.Com with CA", "B.Com Professional Accounting",
-      "BBA", "BBA with CA", "BCA", "B.A. English with CA",
+      "B.Com",
+      "B.Com with CA",
+      "B.Com Professional Accounting",
+      "BBA",
+      "BBA with CA",
+      "BCA",
+      "B.A. English with CA"
     ],
     pg: [
-      "M.A. Tamil Literature", "M.A. English", "M.A. English with CA",
-      "M.Sc. Mathematics", "M.Sc. Computer Science",
-      "M.Sc. Information Technology", "M.Sc. Computer Technology",
-      "M.Sc. Software System", "M.Sc. Physics", "M.Sc. Chemistry",
-      "M.Sc. Microbiology", "M.Sc. Biotechnology", "M.Sc. Biochemistry",
-      "M.Sc. Costume Design & Fashion", "M.Sc. Foods Science & Nutrition",
-      "M.Sc. Textile & Clothing", "M.Sc. Computer Communication",
-      "M.Com", "M.Com with CA", "M.Com Corporate Secretaryship",
-      "MBA", "MCA", "MSW",
+      "M.A. Tamil Literature",
+      "M.A. English",
+      "M.A. English with CA",
+      "M.Sc. Mathematics",
+      "M.Sc. Computer Science",
+      "M.Sc. Information Technology",
+      "M.Sc. Computer Technology",
+      "M.Sc. Software System",
+      "M.Sc. Physics",
+      "M.Sc. Chemistry",
+      "M.Sc. Microbiology",
+      "M.Sc. Biotechnology",
+      "M.Sc. Biochemistry",
+      "M.Sc. Costume Design & Fashion",
+      "M.Sc. Foods Science & Nutrition",
+      "M.Sc. Textile & Clothing",
+      "M.Sc. Computer Communication",
+      "M.Com",
+      "M.Com with CA",
+      "M.Com Corporate Secretaryship",
+      "MBA",
+      "MCA",
+      "MSW",
       "M.Phil – Computer Science & Management",
-      "Ph.D Management", "Ph.D Education",
-    ],
+      "Ph.D Management",
+      "Ph.D Education"
+    ]
   },
 
-  /* ── More Courses (admission posters) ────────────────── */
+  /* ── More Courses ────────────────────────────────────── */
   courses: {
     section_label: "All Programmes",
     section_title: "More Courses We Offer",
     section_sub: "Beyond B.Ed & M.Ed — explore our full range of programmes for 2026–27.",
     items: [
-      { name: "B.Ed", img: "assets/images/courses/9.jpeg" },
-      { name: "Ph.D Education", img: "assets/images/courses/8.jpeg" },
-      { name: "LLB", img: "assets/images/courses/7.jpeg" },
-      { name: "MSc Chemistry", img: "assets/images/courses/6.jpeg" },
-      { name: "MSc Psychology", img: "assets/images/courses/5.jpeg" },
-      { name: "MSc Physics", img: "assets/images/courses/4.jpeg" },
-      { name: "MSc Zoology", img: "assets/images/courses/3.jpeg" },
-      { name: "MSc Botany", img: "assets/images/courses/2.jpeg" },
-      { name: "MSc Mathematics", img: "assets/images/courses/10.jpeg" },
-      { name: "B.Ed & M.Ed (SVU)", img: "assets/images/courses/1.jpeg" },
-      { name: "M.Ed (Girls Only)", img: "assets/images/courses/11.jpeg" },
-      { name: "M.Ed (Regular)", img: "assets/images/courses/12.jpeg" },
-    ],
+      {
+        name: "B.Ed",
+        img: "assets/images/courses/9.jpeg"
+      },
+      {
+        name: "Ph.D Education",
+        img: "assets/images/courses/8.jpeg"
+      },
+      {
+        name: "LLB",
+        img: "assets/images/courses/7.jpeg"
+      },
+      {
+        name: "MSc Chemistry",
+        img: "assets/images/courses/6.jpeg"
+      },
+      {
+        name: "MSc Psychology",
+        img: "assets/images/courses/5.jpeg"
+      },
+      {
+        name: "MSc Physics",
+        img: "assets/images/courses/4.jpeg"
+      },
+      {
+        name: "MSc Zoology",
+        img: "assets/images/courses/3.jpeg"
+      },
+      {
+        name: "MSc Botany",
+        img: "assets/images/courses/2.jpeg"
+      },
+      {
+        name: "MSc Mathematics",
+        img: "assets/images/courses/10.jpeg"
+      },
+      {
+        name: "B.Ed & M.Ed (SVU)",
+        img: "assets/images/courses/1.jpeg"
+      },
+      {
+        name: "M.Ed (Girls Only)",
+        img: "assets/images/courses/11.jpeg"
+      },
+      {
+        name: "M.Ed (Regular)",
+        img: "assets/images/courses/12.jpeg"
+      }
+    ]
   },
 
-  /* ── Faculty ──────────────────────────────────────────── */
+  /* ── Faculty ─────────────────────────────────────────── */
   faculty: {
     section_label: "Our Faculty",
     section_title: "Learn From",
     section_title_span: "Experienced Experts",
     section_sub: "Our team of qualified educators brings years of hands-on experience in B.Ed, M.Ed, and Kerala PSC exam preparation.",
     items: [
-      { name: "Faculty Member", subject: "B.Ed — Mathematics", img: "assets/images/faculties/1.jpeg" },
-      { name: "Faculty Member", subject: "B.Ed — Physical Science", img: "assets/images/faculties/2.jpeg" },
-      { name: "Faculty Member", subject: "B.Ed — English", img: "assets/images/faculties/3.jpeg" },
-      { name: "Faculty Member", subject: "B.Ed — Social Science", img: "assets/images/faculties/4.jpeg" },
-      { name: "Faculty Member", subject: "B.Ed — Commerce", img: "assets/images/faculties/5.jpeg" },
-      { name: "Faculty Member", subject: "B.Ed — Computer Science", img: "assets/images/faculties/6.jpeg" },
-      { name: "Faculty Member", subject: "M.Ed — Education", img: "assets/images/faculties/7.jpeg" },
-      { name: "Faculty Member", subject: "B.Ed — Biological Science", img: "assets/images/faculties/8.jpeg" },
-      { name: "Faculty Member", subject: "Kerala PSC Coaching", img: "assets/images/faculties/9.jpeg" },
-      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/10.jpeg" },
-      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/11.jpeg" },
-      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/12.jpeg" },
-      { name: "Faculty Member", subject: "Doubt & Support Sessions", img: "assets/images/faculties/13.jpeg" },
-    ],
+      {
+        name: "Faculty Member",
+        subject: "B.Ed — Mathematics",
+        img: "assets/images/faculties/1.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "B.Ed — Physical Science",
+        img: "assets/images/faculties/2.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "B.Ed — English",
+        img: "assets/images/faculties/3.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "B.Ed — Social Science",
+        img: "assets/images/faculties/4.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "B.Ed — Commerce",
+        img: "assets/images/faculties/5.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "B.Ed — Computer Science",
+        img: "assets/images/faculties/6.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "M.Ed — Education",
+        img: "assets/images/faculties/7.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "B.Ed — Biological Science",
+        img: "assets/images/faculties/8.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "Kerala PSC Coaching",
+        img: "assets/images/faculties/9.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "Doubt & Support Sessions",
+        img: "assets/images/faculties/10.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "Doubt & Support Sessions",
+        img: "assets/images/faculties/11.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "Doubt & Support Sessions",
+        img: "assets/images/faculties/12.jpeg"
+      },
+      {
+        name: "Faculty Member",
+        subject: "Doubt & Support Sessions",
+        img: "assets/images/faculties/13.jpeg"
+      },
+      {
+        name: "test",
+        subject: "test",
+        img: "assets/images/faculties/hikma-icon-mw7rnoml.jpg"
+      }
+    ]
   },
 
-  /* ── App download links ───────────────────────────────── */
+  /* ── DiGi App ────────────────────────────────────────── */
   app: {
     android: "https://play.google.com/store/apps/details?id=co.stan.sbgwq",
-    ios: "https://apps.apple.com/in/app/classplus/id1324522260",
+    ios: "https://apps.apple.com/in/app/classplus/id1324522260"
   },
 
-  /* ── Why choose us ────────────────────────────────────── */
+  /* ── Why Choose Us ───────────────────────────────────── */
   why: {
     section_label: "Why Digital Point",
     section_title: "Everything You Need to Succeed",
     section_sub: "From admission to exam — we support you at every step with approvals, study material, and live learning.",
     cards: [
-      { icon: "✅", title: "Kerala PSC Approved", desc: "Degrees valid for all Kerala government and aided school teaching posts." },
-      { icon: "🏛️", title: "3 University Equivalency", desc: "Equivalency from Kerala University, Kannur University, and Calicut University." },
-      { icon: "📜", title: "UGC / NCTE / UPSC", desc: "Fully approved by UGC, NCTE, and UPSC — nationally recognised credentials." },
-      { icon: "📚", title: "Free Study Material", desc: "All 4 semester textbooks, class notes, and question papers provided free." },
-    ],
+      {
+        icon: "✅",
+        title: "Kerala PSC Approved",
+        desc: "Degrees valid for all Kerala government and aided school teaching posts."
+      },
+      {
+        icon: "🏛️",
+        title: "3 University Equivalency",
+        desc: "Equivalency from Kerala University, Kannur University, and Calicut University."
+      },
+      {
+        icon: "📜",
+        title: "UGC / NCTE / UPSC",
+        desc: "Fully approved by UGC, NCTE, and UPSC — nationally recognised credentials."
+      },
+      {
+        icon: "📚",
+        title: "Free Study Material",
+        desc: "All 4 semester textbooks, class notes, and question papers provided free."
+      }
+    ]
   },
 
-  /* ── Admission process ────────────────────────────────── */
+  /* ── Admission Process ───────────────────────────────── */
   process: {
     section_label: "Simple Process",
     section_title: "Admission in 4 Easy Steps",
     section_sub: "We handle the paperwork so you focus on your future.",
     steps: [
-      { num: "01", title: "Free Counselling", desc: "Call us or fill the form. Our advisor maps the right programme and university to your profile." },
-      { num: "02", title: "Document Verification", desc: "We check your marksheets and certificates and guide you through any eligibility requirements." },
-      { num: "03", title: "University Selection", desc: "Choose TNTEU or SV University based on your subject, budget, and career goals." },
-      { num: "04", title: "Enrolment Confirmed", desc: "Complete the process and start learning immediately on the DiGi Learning App." },
-    ],
+      {
+        num: "01",
+        title: "Free Counselling",
+        desc: "Call us or fill the form. Our advisor maps the right programme and university to your profile."
+      },
+      {
+        num: "02",
+        title: "Document Verification",
+        desc: "We check your marksheets and certificates and guide you through any eligibility requirements."
+      },
+      {
+        num: "03",
+        title: "University Selection",
+        desc: "Choose TNTEU or SV University based on your subject, budget, and career goals."
+      },
+      {
+        num: "04",
+        title: "Enrolment Confirmed",
+        desc: "Complete the process and start learning immediately on the DiGi Learning App."
+      }
+    ]
   },
 
-  /* ── Gallery section ──────────────────────────────────── */
+  /* ── Gallery ─────────────────────────────────────────── */
   gallery: {
     section_label: "Media",
     section_title: "Photos & Videos",
     section_sub: "A glimpse of our classes, campus visits, and student life at Digital Point.",
-
-    /**
-     * PHOTOS — add your image file names here.
-     * Place the image files in: assets/images/gallery/
-     * Example: { src: "assets/images/gallery/classroom.jpg", alt: "Classroom session" }
-     */
     photos: [
-      { src: "", alt: "Add photo here" },
-      { src: "", alt: "Add photo here" },
-      { src: "", alt: "Add photo here" },
-      { src: "", alt: "Add photo here" },
-      { src: "", alt: "Add photo here" },
-      { src: "", alt: "Add photo here" },
+      {
+        src: "",
+        alt: "Add photo here"
+      },
+      {
+        src: "",
+        alt: "Add photo here"
+      },
+      {
+        src: "",
+        alt: "Add photo here"
+      },
+      {
+        src: "",
+        alt: "Add photo here"
+      },
+      {
+        src: "",
+        alt: "Add photo here"
+      },
+      {
+        src: "",
+        alt: "Add photo here"
+      }
     ],
-
-    /**
-     * VIDEOS — paste your YouTube video IDs here.
-     * Find the ID in the YouTube URL: youtube.com/watch?v=VIDEO_ID
-     * Example: { id: "dQw4w9WgXcQ", caption: "Orientation Day 2024" }
-     */
     videos: [
-      { id: "", caption: "Add your YouTube video ID here" },
-      { id: "", caption: "Add your YouTube video ID here" },
-      { id: "", caption: "Add your YouTube video ID here" },
-    ],
+      {
+        id: "",
+        caption: "Add your YouTube video ID here"
+      },
+      {
+        id: "",
+        caption: "Add your YouTube video ID here"
+      },
+      {
+        id: "",
+        caption: "Add your YouTube video ID here"
+      }
+    ]
   },
 
-  /* ── Achievements carousel ────────────────────────────── */
+  /* ── Achievements ────────────────────────────────────── */
   achievements: [
-    { icon: "🎓", num: "2,400+", title: "Students Enrolled", desc: "Successful B.Ed & M.Ed admissions handled since our founding." },
-    { icon: "✅", num: "98%", title: "Admission Success Rate", desc: "Industry-leading success rate with end-to-end documentation support." },
-    { icon: "🏛️", num: "5", title: "Partner Universities", desc: "TNTEU, SV University, Osmania, Pondicherry & Bharathiar — all Kerala PSC approved." },
-    { icon: "📜", num: "3", title: "University Equivalency", desc: "Equivalency from Kerala, Kannur & Calicut Universities." },
-    { icon: "📱", num: "1", title: "Official Learning App", desc: "DiGi Learning App with live classes, notes & question papers — free." },
-    { icon: "🧑‍🏫", num: "7", title: "B.Ed Specialisations", desc: "English, Maths, Science, Commerce, Computer Science, Social Science & more." },
-    { icon: "⚡", num: "7–10", title: "Days to Admission", desc: "Fast-track processing — admission letter in your hands within days." },
-    { icon: "📚", num: "100%", title: "Free Study Material", desc: "All 4 semester textbooks, class notes and PYQs provided at no cost." },
+    {
+      icon: "🎓",
+      num: "2,400+",
+      title: "Students Enrolled",
+      desc: "Successful B.Ed & M.Ed admissions handled since our founding."
+    },
+    {
+      icon: "✅",
+      num: "98%",
+      title: "Admission Success Rate",
+      desc: "Industry-leading success rate with end-to-end documentation support."
+    },
+    {
+      icon: "🏛️",
+      num: "5",
+      title: "Partner Universities",
+      desc: "TNTEU, SV University, Osmania, Pondicherry & Bharathiar — all Kerala PSC approved."
+    },
+    {
+      icon: "📜",
+      num: "3",
+      title: "University Equivalency",
+      desc: "Equivalency from Kerala, Kannur & Calicut Universities."
+    },
+    {
+      icon: "📱",
+      num: "1",
+      title: "Official Learning App",
+      desc: "DiGi Learning App with live classes, notes & question papers — free."
+    },
+    {
+      icon: "🧑‍🏫",
+      num: "7",
+      title: "B.Ed Specialisations",
+      desc: "English, Maths, Science, Commerce, Computer Science, Social Science & more."
+    },
+    {
+      icon: "⚡",
+      num: "7–10",
+      title: "Days to Admission",
+      desc: "Fast-track processing — admission letter in your hands within days."
+    },
+    {
+      icon: "📚",
+      num: "100%",
+      title: "Free Study Material",
+      desc: "All 4 semester textbooks, class notes and PYQs provided at no cost."
+    }
   ],
 
-  /* ── Testimonials ─────────────────────────────────────── */
+  /* ── Testimonials ────────────────────────────────────── */
   testimonials: {
     section_label: "Student Stories",
     section_title: "Trusted by Teachers Across Kerala",
@@ -325,32 +566,32 @@ const CONTENT = {
         name: "Akhila K.",
         meta: "B.Ed — Mathematics · Malappuram",
         initials: "AK",
-        stars: 5,
+        stars: 5
       },
       {
         text: "I was worried about Kerala PSC approval. The team at Digital Point confirmed everything — TNTEU degree with full equivalency. Got my admission confirmed in less than two weeks.",
         name: "Rahul S.",
         meta: "B.Ed — English · Kozhikode",
         initials: "RS",
-        stars: 5,
+        stars: 5
       },
       {
         text: "The free textbooks and recorded classes saved me so much. The doubt clearing sessions before exams were especially helpful. Digital Point is more than just an admission office — they support you throughout.",
         name: "Nisha M.",
         meta: "M.Ed · Areekode",
         initials: "NM",
-        stars: 5,
-      },
-    ],
+        stars: 5
+      }
+    ]
   },
 
-  /* ── CTA band ─────────────────────────────────────────── */
+  /* ── Call To Action ──────────────────────────────────── */
   cta: {
     title_line1: "Seats Are Limited —",
     title_line2: "Apply for 2026–28 Today",
     subtitle: "B.Ed & M.Ed admissions from TNTEU and SV University are now open. Call us or fill the form — counselling is completely free.",
     btn_primary: "Apply Now — It's Free",
-    btn_social: "📸 Follow on Instagram",
+    btn_social: "📸 Follow on Instagram"
   },
 
 };
