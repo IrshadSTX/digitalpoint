@@ -495,24 +495,24 @@ const CONTENT = {
     section_sub: "A glimpse of our classes, campus visits, and student life at Digital Point.",
     photos: [
       {
-        src: "",
-        alt: "Add photo here"
+        src: "assets/images/gallery/add-photo-here-mw7tydi1.jpg",
+        alt: "SET 2026"
       },
       {
-        src: "",
-        alt: "Add photo here"
+        src: "assets/images/gallery/add-photo-here-mw7tyyjy.jpg",
+        alt: "SET 2026"
       },
       {
-        src: "",
-        alt: "Add photo here"
+        src: "assets/images/gallery/add-photo-here-mw7tzc0c.jpg",
+        alt: "SET 2026"
       },
       {
-        src: "",
-        alt: "Add photo here"
+        src: "assets/images/gallery/add-photo-here-mw7tzqca.jpg",
+        alt: "SET 2026"
       },
       {
-        src: "",
-        alt: "Add photo here"
+        src: "assets/images/gallery/add-photo-here-mw7u02vq.jpg",
+        alt: "SET 2026"
       },
       {
         src: "",
