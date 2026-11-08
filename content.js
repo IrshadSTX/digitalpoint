@@ -71,6 +71,22 @@ const CONTENT = {
       {
         img: "assets/images/institute/4.jpeg",
         alt: "Digital Point institute"
+      },
+      {
+        img: "assets/images/institute/1001875292-mw7ucrey.jpg",
+        alt: "Digital Point institute"
+      },
+      {
+        img: "assets/images/institute/1001107123-mw7udrij.jpg",
+        alt: ""
+      },
+      {
+        img: "assets/images/institute/1000386357-mw7ue513.jpg",
+        alt: ""
+      },
+      {
+        img: "assets/images/institute/1000132765-mw7ugmb7.jpg",
+        alt: ""
       }
     ]
   },
