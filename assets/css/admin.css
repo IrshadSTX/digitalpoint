@@ -383,7 +383,7 @@
 .adm-img-busy .adm-img-frame { opacity: 0.5; pointer-events: none; }
 .adm-img-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
 .adm-img-path { font-size: 0.72rem; color: var(--white-60); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
-.adm-img-btns { display: flex; gap: 6px; }
+.adm-img-btns { display: flex; flex-wrap: wrap; gap: 6px; }
 
 /* Non-grid image field (single image in a normal form) */
 .adm-items:not(.adm-items-grid) .adm-img-frame { max-width: 320px; }
