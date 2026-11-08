@@ -331,7 +331,7 @@
         onclick: () => selectSection(key),
       },
         h('span', { class: 'adm-nav-label' }, m.label),
-        hasImages(state[key]) ? h('span', { class: 'adm-nav-tag', title: 'Has images' }, '🖼') : null,
+        hasImages(state[key]) ? h('span', { class: 'adm-nav-tag', title: 'This section has images' }, 'Images') : null,
         dirty ? h('span', { class: 'adm-nav-dirty', title: 'Unsaved changes' }) : null,
       ));
     }

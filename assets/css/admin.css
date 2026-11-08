@@ -210,7 +210,19 @@
 .adm-nav-item:hover { background: var(--white-06); color: var(--white); }
 .adm-nav-item.active { background: var(--cyan-dim); color: var(--cyan); box-shadow: inset 2px 0 0 var(--cyan); }
 .adm-nav-label { flex: 1; }
-.adm-nav-tag { font-size: 0.72rem; opacity: 0.7; }
+.adm-nav-tag {
+  flex: none;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 200, 87, 0.14);
+  border: 1px solid rgba(255, 200, 87, 0.35);
+  color: #ffc857;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
 .adm-nav-dirty { width: 8px; height: 8px; border-radius: 50%; background: #ffc857; box-shadow: 0 0 8px rgba(255, 200, 87, 0.6); }
 
 .adm-main { padding: 32px 40px 60px; min-width: 0; }
@@ -546,7 +558,6 @@
     font-size: 0.82rem;
   }
   .adm-nav-item.active { box-shadow: none; border-color: var(--glass-border); }
-  .adm-nav-tag { display: none; }
   .adm-main { padding: 22px 16px 40px; }
 }
 
