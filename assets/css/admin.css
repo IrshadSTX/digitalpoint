@@ -532,22 +532,16 @@
 @media (max-width: 900px) {
   .adm-app { grid-template-columns: minmax(0, 1fr); }
   .adm-sidebar {
-    position: sticky;
-    top: 58px;
-    z-index: 40;
+    position: static;
     height: auto;
     flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 10px 16px;
+    flex-wrap: wrap;
+    overflow: visible;
+    padding: 12px 16px;
     gap: 6px;
     border-right: none;
     border-bottom: 1px solid var(--white-06);
-    background: rgba(5, 10, 26, 0.92);
-    backdrop-filter: blur(14px);
-    scrollbar-width: none;
   }
-  .adm-sidebar::-webkit-scrollbar { display: none; }
   .adm-sidebar-title { display: none; }
   .adm-nav-item {
     width: auto;

@@ -328,7 +328,7 @@
         type: 'button',
         class: 'adm-nav-item' + (key === currentKey ? ' active' : ''),
         'aria-current': key === currentKey ? 'page' : null,
-        onclick: () => selectSection(key),
+        onclick: () => selectSection(key, true),
       },
         h('span', { class: 'adm-nav-label' }, m.label),
         hasImages(state[key]) ? h('span', { class: 'adm-nav-tag', title: 'This section has images' }, 'Images') : null,
@@ -337,14 +337,15 @@
     }
   }
 
-  function selectSection(key) {
+  function selectSection(key, fromTab) {
     currentKey = key;
     history.replaceState(null, '', '#' + key);
     renderSidebar();
     renderSection();
-    window.scrollTo({ top: 0 });
-    const active = $('adm-sidebar').querySelector('.active');
-    if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
+    // On phones the tab list sits above the content, so jump to the section heading
+    const wrapped = window.matchMedia('(max-width: 900px)').matches;
+    const top = wrapped && fromTab ? $('adm-section').getBoundingClientRect().top + window.scrollY - 70 : 0;
+    window.scrollTo({ top, behavior: 'instant' });
   }
 
   function renderSection() {
