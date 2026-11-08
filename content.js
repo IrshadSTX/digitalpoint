@@ -406,11 +406,6 @@ const CONTENT = {
         name: "Faculty Member",
         subject: "Doubt & Support Sessions",
         img: "assets/images/faculties/13.jpeg"
-      },
-      {
-        name: "test",
-        subject: "test",
-        img: "assets/images/faculties/hikma-icon-mw7rnoml.jpg"
       }
     ]
   },
