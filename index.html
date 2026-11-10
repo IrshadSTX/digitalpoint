@@ -824,69 +824,28 @@
     </section>
 
     <!-- ════════════════════════════════════════════════════════
-       GALLERY — Images & Videos  [COMMENTED OUT — implement later]
-       ─────────────────────────────────────────────────────
-       HOW TO ADD CONTENT:
-       • Images: drop files into assets/images/gallery/
-         then add <div class="media-item"> blocks below.
-       • Videos: replace the src="..." YouTube embed URLs.
+       GALLERY — Photos & Videos  [COMMENTED OUT — implement later]
+       Ready to use: content comes from CONTENT.gallery (content.js),
+       managed from admin.html → Gallery; empty slots are skipped.
+       To enable: remove the comment markers around this block, and
+       un-comment the Gallery nav/footer links and gallery.js below.
   ═════════════════════════════════════════════════════════ -->
     <!--
     <section id="gallery">
         <div class="container">
             <div class="center-text">
-                <div class="section-label reveal">Media</div>
-                <h2 class="section-title reveal">Photos &amp; <span>Videos</span></h2>
-                <p class="section-sub reveal">A glimpse of our classes, campus visits, and student life at Digital
-                    Point.</p>
+                <div class="section-label reveal" data-c="gallery.section_label">Media</div>
+                <h2 class="section-title reveal" data-c="gallery.section_title">Photos &amp; Videos</h2>
+                <p class="section-sub reveal" data-c="gallery.section_sub">A glimpse of our classes, campus visits, and student life at Digital Point.</p>
             </div>
 
-            <div class="gallery-tabs reveal">
+            <div class="gallery-tabs reveal" id="gallery-tabs">
                 <button class="gallery-tab active" data-tab="photos">📷 Photos</button>
                 <button class="gallery-tab" data-tab="videos">🎬 Videos</button>
             </div>
 
-            <div class="gallery-grid" id="tab-photos">
-                <div class="media-item media-placeholder" data-src="assets/images/gallery/photo1.jpg">
-                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
-                </div>
-                <div class="media-item media-placeholder" data-src="assets/images/gallery/photo2.jpg">
-                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
-                </div>
-                <div class="media-item media-placeholder" data-src="assets/images/gallery/photo3.jpg">
-                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
-                </div>
-                <div class="media-item media-placeholder" data-src="assets/images/gallery/photo4.jpg">
-                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
-                </div>
-                <div class="media-item media-placeholder" data-src="assets/images/gallery/photo5.jpg">
-                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
-                </div>
-                <div class="media-item media-placeholder" data-src="assets/images/gallery/photo6.jpg">
-                    <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
-                </div>
-            </div>
-
-            <div class="gallery-grid hidden" id="tab-videos">
-                <div class="video-card reveal">
-                    <div class="video-thumb" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                        <div class="play-btn" aria-label="Play video">▶</div>
-                        <p class="video-caption">Add your YouTube video URL here</p>
-                    </div>
-                </div>
-                <div class="video-card reveal" style="transition-delay:0.1s">
-                    <div class="video-thumb" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                        <div class="play-btn" aria-label="Play video">▶</div>
-                        <p class="video-caption">Add your YouTube video URL here</p>
-                    </div>
-                </div>
-                <div class="video-card reveal" style="transition-delay:0.2s">
-                    <div class="video-thumb" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                        <div class="play-btn" aria-label="Play video">▶</div>
-                        <p class="video-caption">Add your YouTube video URL here</p>
-                    </div>
-                </div>
-            </div>
+            <div class="gallery-grid" id="tab-photos"></div>
+            <div class="gallery-grid hidden" id="tab-videos"></div>
         </div>
     </section>
 

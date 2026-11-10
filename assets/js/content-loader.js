@@ -105,40 +105,47 @@
       </article>`).join('');
   }
 
-  /* ── 8. Gallery photos ────────────────────────────────── */
-  function renderPhotos() {
-    const wrap = document.getElementById('tab-photos');
-    if (!wrap || !CONTENT.gallery?.photos) return;
-    wrap.innerHTML = CONTENT.gallery.photos.map((p) => {
-      if (!p.src) {
-        return `<div class="media-item media-placeholder">
-          <div class="placeholder-inner"><span>📷</span><p>Add photo here</p></div>
-        </div>`;
-      }
-      return `<div class="media-item" data-alt="${p.alt}">
-        <img src="${p.src}" alt="${p.alt}" loading="lazy" />
-      </div>`;
-    }).join('');
-  }
+  /* ── 8–9. Gallery (photos + videos) ───────────────────
+     Only filled slots are shown. With no videos the tab bar is
+     hidden; with nothing at all the whole section is hidden. */
+  function renderGallery() {
+    const section = document.getElementById('gallery');
+    const photosWrap = document.getElementById('tab-photos');
+    const videosWrap = document.getElementById('tab-videos');
+    if (!section || !photosWrap || !videosWrap) return;
 
-  /* ── 9. Gallery videos ────────────────────────────────── */
-  function renderVideos() {
-    const wrap = document.getElementById('tab-videos');
-    if (!wrap || !CONTENT.gallery?.videos) return;
-    wrap.innerHTML = CONTENT.gallery.videos.map((v, i) => {
-      const embedUrl = v.id
-        ? `https://www.youtube.com/embed/${v.id}`
-        : 'https://www.youtube.com/embed/';
-      return `<div class="video-card reveal" style="transition-delay:${i * 0.1}s">
-        <div class="video-thumb" data-video="${embedUrl}">
-          ${v.id
-            ? `<img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${v.caption}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />`
-            : ''}
+    const photos = (CONTENT.gallery?.photos || []).filter((p) => p.src);
+    const videos = (CONTENT.gallery?.videos || []).filter((v) => v.id);
+
+    photosWrap.innerHTML = photos.map((p) => `
+      <div class="media-item" data-alt="${esc(p.alt)}">
+        <img src="${esc(p.src)}" alt="${esc(p.alt)}" loading="lazy" />
+      </div>`).join('');
+
+    videosWrap.innerHTML = videos.map((v, i) => `
+      <div class="video-card reveal" style="transition-delay:${i * 0.1}s">
+        <div class="video-thumb" data-video="https://www.youtube.com/embed/${encodeURIComponent(v.id)}">
+          <img src="https://img.youtube.com/vi/${encodeURIComponent(v.id)}/hqdefault.jpg" alt="${esc(v.caption)}"
+               style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" loading="lazy" />
           <div class="play-btn" aria-label="Play video">▶</div>
-          <p class="video-caption">${v.caption}</p>
+          <p class="video-caption">${esc(v.caption)}</p>
         </div>
-      </div>`;
-    }).join('');
+      </div>`).join('');
+
+    const tabs = document.getElementById('gallery-tabs');
+    if (!photos.length && !videos.length) {
+      section.style.display = 'none';
+      document.querySelectorAll('a[href="#gallery"]').forEach((a) => { (a.closest('li') || a).style.display = 'none'; });
+      return;
+    }
+    if (tabs && !(photos.length && videos.length)) {
+      tabs.style.display = 'none';
+      section.classList.add('gallery-no-tabs');
+    }
+    if (!photos.length) {               // videos only → show videos grid
+      photosWrap.classList.add('hidden');
+      videosWrap.classList.remove('hidden');
+    }
   }
 
   /* ── 10. Course catalogue ─────────────────────────────── */
@@ -370,8 +377,7 @@
     renderSteps();
     renderAchievements();
     renderTestimonials();
-    renderPhotos();
-    renderVideos();
+    renderGallery();
     renderCatalogue();
     renderPopupSlider();
     renderCoursesSection();
